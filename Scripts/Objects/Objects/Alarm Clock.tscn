@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj454rliywua5"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_wdhc4"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/AlarmClock.gd" id="2_3kipe"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_hfl4y"]
+
+[sub_resource type="Resource" id="Resource_45r7t"]
+script = ExtResource("3_hfl4y")
+Name = "Включить тревогу"
+Description = "Подъём! Кто-то проспал свое счастье, хехе!"
+function_name = "AlarmClockRing"
+
+[node name="Object" instance=ExtResource("1_wdhc4")]
+script = ExtResource("2_3kipe")
+Actions = Array[ExtResource("3_hfl4y")]([SubResource("Resource_45r7t")])
+
+[node name="FlowContainer" parent="." index="2"]
+offset_left = -52.5
+offset_top = -62.0689
+offset_right = 81.5
+offset_bottom = -4.06894
+vertical = true

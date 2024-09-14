@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://btjcktrnlkns5"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectScript.gd" id="1_7u4ih"]
+[ext_resource type="Texture2D" uid="uid://govrqiogvruk" path="res://Assets/Objects/Object-sample.png" id="1_kcwus"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_y3oox"]
+[ext_resource type="Script" path="res://Scripts/Objects/CloudPopUpScript.gd" id="4_878e2"]
+[ext_resource type="Texture2D" uid="uid://bxtnw2yg8kufj" path="res://Assets/UI/Cloud-sample.png" id="5_j8t0w"]
+[ext_resource type="AudioStream" uid="uid://cxp3o0l4ttx4v" path="res://Assets/Objects/AlarmClockBugged.wav" id="5_rslnx"]
+[ext_resource type="Texture2D" uid="uid://bpww2peecowje" path="res://Assets/UI/Action-sample.png" id="6_6fmh2"]
+[ext_resource type="Texture2D" uid="uid://8uc1h3alye2" path="res://Assets/UI/Modifier-sample.png" id="7_ap2ik"]
+
+[sub_resource type="Resource" id="Resource_3n3f5"]
+script = ExtResource("3_y3oox")
+Name = "Включить тревогу"
+Description = "Подъём! Кто-то проспал свое счастье, хехе!"
+function_name = ""
+
+[node name="Object" type="TextureButton"]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(0.933333, 0.966667)
+texture_normal = ExtResource("1_kcwus")
+texture_pressed = ExtResource("1_kcwus")
+texture_hover = ExtResource("1_kcwus")
+texture_disabled = ExtResource("1_kcwus")
+script = ExtResource("1_7u4ih")
+ColorBugged = Color(0.879856, 0.658647, 0.676625, 1)
+ColorUnusable = Color(0.628859, 0.628859, 0.628859, 1)
+Actions = Array[ExtResource("3_y3oox")]([SubResource("Resource_3n3f5")])
+
+[node name="CloudPopUp" type="Control" parent="."]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.2143
+offset_top = -47.5862
+offset_right = 37.2143
+offset_bottom = -26.5862
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_878e2")
+
+[node name="CloudImage" type="TextureRect" parent="CloudPopUp"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 51.0
+texture = ExtResource("5_j8t0w")
+
+[node name="Icon" type="TextureRect" parent="CloudPopUp/CloudImage"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 50.0
+texture = ExtResource("6_6fmh2")
+metadata/_edit_lock_ = true
+
+[node name="Modifier" type="TextureRect" parent="CloudPopUp/CloudImage"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 50.0
+texture = ExtResource("7_ap2ik")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rslnx")
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

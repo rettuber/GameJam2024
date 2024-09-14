@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dptxuftfp44q1"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/CloudPopUpScript.gd" id="1_l3f68"]
+[ext_resource type="Texture2D" uid="uid://bxtnw2yg8kufj" path="res://Assets/UI/Cloud-sample.png" id="2_uvws6"]
+[ext_resource type="Texture2D" uid="uid://bpww2peecowje" path="res://Assets/UI/Action-sample.png" id="3_0kq1y"]
+[ext_resource type="Texture2D" uid="uid://8uc1h3alye2" path="res://Assets/UI/Modifier-sample.png" id="4_16it8"]
+
+[node name="CloudPopUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3f68")
+
+[node name="CloudImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 51.0
+texture = ExtResource("2_uvws6")
+
+[node name="Icon" type="TextureRect" parent="CloudImage"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 50.0
+texture = ExtResource("3_0kq1y")
+metadata/_edit_lock_ = true
+
+[node name="Modifier" type="TextureRect" parent="CloudImage"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 50.0
+texture = ExtResource("4_16it8")
+metadata/_edit_lock_ = true

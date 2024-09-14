@@ -1,0 +1,162 @@
+[gd_scene load_steps=7 format=3 uid="uid://oo8pp1huxkwe"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
+[ext_resource type="Texture2D" uid="uid://blhx2al0j0uqb" path="res://icon.svg" id="2_k2hfy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hepxh"]
+size = Vector2(70, 420)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuqlt"]
+atlas = ExtResource("2_k2hfy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkwm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuqlt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n7qu"]
+bg_color = Color(0.267304, 0.267304, 0.267304, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gp83y")
+
+[node name="StressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -152.0
+offset_right = -77.0
+offset_bottom = 268.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 0
+max_value = 9.0
+value = 1.0
+fill_mode = 3
+texture_under = SubResource("PlaceholderTexture2D_hepxh")
+
+[node name="HumanFace" type="AnimatedSprite2D" parent="StressBar"]
+unique_name_in_owner = true
+position = Vector2(36, -60)
+scale = Vector2(0.898438, 0.890625)
+sprite_frames = SubResource("SpriteFrames_wkwm4")
+
+[node name="AISpeechContainer" type="PanelContainer" parent="."]
+offset_left = 187.0
+offset_top = 45.0
+offset_right = 950.0
+offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1n7qu")
+
+[node name="MarginContainer" type="MarginContainer" parent="AISpeechContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 13
+
+[node name="AISpeech" type="RichTextLabel" parent="AISpeechContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Подъём! Кто-то проспал свое счастье, хехе!"
+fit_content = true
+scroll_active = false
+
+[node name="AIPortrait" type="TextureRect" parent="."]
+offset_left = 47.0
+offset_top = 19.0
+offset_right = 158.0
+offset_bottom = 130.0
+mouse_filter = 0
+texture = ExtResource("2_k2hfy")
+expand_mode = 3
+
+[node name="ClockContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -133.0
+offset_right = 245.0
+offset_bottom = -47.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1n7qu")
+
+[node name="MarginContainer" type="MarginContainer" parent="ClockContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ClockContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ClockHours" type="RichTextLabel" parent="ClockContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]05"
+fit_content = true
+scroll_active = false
+
+[node name="ClockColon" type="RichTextLabel" parent="ClockContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.23
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]:"
+fit_content = true
+scroll_active = false
+
+[node name="ClockMinutes" type="RichTextLabel" parent="ClockContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]00"
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 483.0
+offset_right = 175.0
+offset_bottom = 611.0
+texture_normal = ExtResource("2_k2hfy")
