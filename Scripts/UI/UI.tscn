@@ -1,25 +1,71 @@
-[gd_scene load_steps=7 format=3 uid="uid://oo8pp1huxkwe"]
+[gd_scene load_steps=18 format=3 uid="uid://oo8pp1huxkwe"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
-[ext_resource type="Texture2D" uid="uid://blhx2al0j0uqb" path="res://icon.svg" id="2_k2hfy"]
+[ext_resource type="Texture2D" uid="uid://71xw8hjuxllo" path="res://Assets/UI/BG.png" id="2_sg202"]
+[ext_resource type="Texture2D" uid="uid://bu4nwas3jmpyb" path="res://Assets/UI/HUD/AngerScaleBG.png" id="3_celrg"]
+[ext_resource type="Texture2D" uid="uid://bgwwa0y3rm55m" path="res://Assets/UI/HUD/AngerScale.png" id="3_kbp4m"]
+[ext_resource type="Texture2D" uid="uid://f1i8wl3yqq0v" path="res://Assets/UI/HUD/HumanFace.png" id="3_nvgow"]
+[ext_resource type="Texture2D" uid="uid://bk2klv3ed2n04" path="res://Assets/UI/HUD/SpeechBubble.png" id="4_6cl5i"]
+[ext_resource type="Texture2D" uid="uid://b4n72wp48krhc" path="res://Assets/UI/HUD/Eye.png" id="4_feoln"]
+[ext_resource type="FontFile" uid="uid://cse6rs5mgcysf" path="res://Assets/UI/Scriptspirit-FontRG.ttf" id="6_nxmu4"]
+[ext_resource type="Texture2D" uid="uid://ci1wu8j8ogxtk" path="res://Assets/UI/HUD/GearIcon.png" id="9_51i8y"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hepxh"]
-size = Vector2(70, 420)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sjeq"]
+atlas = ExtResource("3_nvgow")
+region = Rect2(624, 0, 156, 157)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yuqlt"]
-atlas = ExtResource("2_k2hfy")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dj5bu"]
+load_path = "res://.godot/imported/HumanFace.png-c8d02e9361d57ba157c13a3ffdb2af7a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08gk0"]
+atlas = SubResource("CompressedTexture2D_dj5bu")
+region = Rect2(312, 0, 156, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg045"]
+atlas = ExtResource("3_nvgow")
+region = Rect2(468, 0, 156, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xme6g"]
+atlas = ExtResource("3_nvgow")
+region = Rect2(312, 0, 156, 157)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkwm4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yuqlt")
+"texture": SubResource("AtlasTexture_3sjeq")
 }],
 "loop": true,
-"name": &"default",
+"name": &"fuming",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08gk0")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg045")
+}],
+"loop": true,
+"name": &"mad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xme6g")
+}],
+"loop": true,
+"name": &"unhappy",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ds8bh"]
+texture = ExtResource("4_6cl5i")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n7qu"]
 bg_color = Color(0.267304, 0.267304, 0.267304, 1)
@@ -39,6 +85,15 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_gp83y")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sg202")
+
 [node name="StressBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 6
@@ -46,54 +101,61 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -152.0
-offset_right = -77.0
+offset_left = -133.0
+offset_top = -94.0
+offset_right = -35.0
 offset_bottom = 268.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 0
 max_value = 9.0
-value = 1.0
 fill_mode = 3
-texture_under = SubResource("PlaceholderTexture2D_hepxh")
+nine_patch_stretch = true
+texture_under = ExtResource("3_celrg")
+texture_progress = ExtResource("3_kbp4m")
 
 [node name="HumanFace" type="AnimatedSprite2D" parent="StressBar"]
 unique_name_in_owner = true
-position = Vector2(36, -60)
-scale = Vector2(0.898438, 0.890625)
+position = Vector2(46.5391, -69)
+scale = Vector2(0.878706, 0.890625)
 sprite_frames = SubResource("SpriteFrames_wkwm4")
+animation = &"happy"
+autoplay = "happy"
 
 [node name="AISpeechContainer" type="PanelContainer" parent="."]
-offset_left = 187.0
+layout_mode = 0
+offset_left = 160.0
 offset_top = 45.0
 offset_right = 950.0
-offset_bottom = 104.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1n7qu")
+offset_bottom = 115.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ds8bh")
 
 [node name="MarginContainer" type="MarginContainer" parent="AISpeechContainer"]
 layout_mode = 2
 mouse_filter = 0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 13
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_top = 19
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 13
 
 [node name="AISpeech" type="RichTextLabel" parent="AISpeechContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_nxmu4")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "Подъём! Кто-то проспал свое счастье, хехе!"
 fit_content = true
 scroll_active = false
 
 [node name="AIPortrait" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 47.0
 offset_top = 19.0
 offset_right = 158.0
 offset_bottom = 130.0
 mouse_filter = 0
-texture = ExtResource("2_k2hfy")
+texture = ExtResource("4_feoln")
 expand_mode = 3
 
 [node name="ClockContainer" type="PanelContainer" parent="."]
@@ -159,4 +221,4 @@ offset_left = 47.0
 offset_top = 483.0
 offset_right = 175.0
 offset_bottom = 611.0
-texture_normal = ExtResource("2_k2hfy")
+texture_normal = ExtResource("9_51i8y")
