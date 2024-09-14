@@ -8,11 +8,15 @@
 script = ExtResource("3_hfl4y")
 Name = "Включить тревогу"
 Description = "Подъём! Кто-то проспал свое счастье, хехе!"
-function_name = "AlarmClockRing"
+player_function_name = "AlarmClockRing"
+npc_function_name = "AlarmClockTurnOff"
 
 [node name="Object" instance=ExtResource("1_wdhc4")]
 script = ExtResource("2_3kipe")
 Actions = Array[ExtResource("3_hfl4y")]([SubResource("Resource_45r7t")])
+
+[node name="CloudPopUp" parent="." index="0"]
+visible = false
 
 [node name="FlowContainer" parent="." index="2"]
 offset_left = -52.5
