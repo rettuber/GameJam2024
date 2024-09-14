@@ -53,5 +53,4 @@ func DecreaseStress() :
 	if stress > 0: stress -= 1
 
 func UpdateAISpeech(text: String) :
-	if ai_speech:
-		ai_speech.text = text
+	pass
