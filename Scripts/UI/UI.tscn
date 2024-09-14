@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://oo8pp1huxkwe"]
+[gd_scene load_steps=19 format=3 uid="uid://oo8pp1huxkwe"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
 [ext_resource type="Texture2D" uid="uid://71xw8hjuxllo" path="res://Assets/UI/BG.png" id="2_sg202"]
@@ -75,7 +75,10 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
-[node name="UI" type="Control"]
+[sub_resource type="Theme" id="Theme_1xvtl"]
+
+[node name="Interface" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,13 +89,19 @@ mouse_filter = 2
 script = ExtResource("1_gp83y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -36.0
+offset_right = 64.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_sg202")
+metadata/_edit_lock_ = true
 
 [node name="StressBar" type="TextureProgressBar" parent="."]
 layout_mode = 1
@@ -113,6 +122,7 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_under = ExtResource("3_celrg")
 texture_progress = ExtResource("3_kbp4m")
+metadata/_edit_lock_ = true
 
 [node name="HumanFace" type="AnimatedSprite2D" parent="StressBar"]
 unique_name_in_owner = true
@@ -129,6 +139,7 @@ offset_top = 45.0
 offset_right = 950.0
 offset_bottom = 115.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ds8bh")
+metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="AISpeechContainer"]
 layout_mode = 2
@@ -137,9 +148,9 @@ theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 19
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 13
+metadata/_edit_lock_ = true
 
 [node name="AISpeech" type="RichTextLabel" parent="AISpeechContainer/MarginContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("6_nxmu4")
 theme_override_font_sizes/normal_font_size = 20
@@ -147,6 +158,7 @@ bbcode_enabled = true
 text = "Подъём! Кто-то проспал свое счастье, хехе!"
 fit_content = true
 scroll_active = false
+metadata/_edit_lock_ = true
 
 [node name="AIPortrait" type="TextureRect" parent="."]
 layout_mode = 0
@@ -157,17 +169,20 @@ offset_bottom = 130.0
 mouse_filter = 0
 texture = ExtResource("4_feoln")
 expand_mode = 3
+metadata/_edit_lock_ = true
 
 [node name="ClockContainer" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = -133.0
-offset_right = 245.0
-offset_bottom = -47.0
+offset_left = -363.0
+offset_top = -140.0
+offset_right = -171.0
+offset_bottom = -54.0
+grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1n7qu")
 
@@ -177,13 +192,14 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 0
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ClockContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="ClockHours" type="RichTextLabel" parent="ClockContainer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -192,6 +208,7 @@ bbcode_enabled = true
 text = "[center]05"
 fit_content = true
 scroll_active = false
+metadata/_edit_lock_ = true
 
 [node name="ClockColon" type="RichTextLabel" parent="ClockContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -203,9 +220,9 @@ bbcode_enabled = true
 text = "[center]:"
 fit_content = true
 scroll_active = false
+metadata/_edit_lock_ = true
 
 [node name="ClockMinutes" type="RichTextLabel" parent="ClockContainer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -214,11 +231,74 @@ bbcode_enabled = true
 text = "[center]00"
 fit_content = true
 scroll_active = false
+metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 483.0
-offset_right = 175.0
-offset_bottom = 611.0
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -105.0
+offset_right = 105.0
+offset_bottom = -22.0
+grow_vertical = 0
 texture_normal = ExtResource("9_51i8y")
+stretch_mode = 0
+
+[node name="PauseMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -112.0
+offset_right = 157.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Options" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="ToMainMenu" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[node name="Exit" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_1xvtl")
+text = "Exit"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_Pause_button_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/ToMainMenu" to="." method="_on_ToMainMenu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

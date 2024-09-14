@@ -18,26 +18,28 @@ func _ui_setup():
 	hours_text = get_node("ClockContainer/MarginContainer/HBoxContainer/ClockHours")
 	minutes_text = get_node("ClockContainer/MarginContainer/HBoxContainer/ClockMinutes")
 	ai_speech = get_node("AISpeechContainer/MarginContainer/AISpeech")
-	_start_clock()
+	_update_clock()
 
-func _start_clock():
-	while hours < 22:
-		if not stop_clock:
-			await get_tree().create_timer(0.1).timeout
-			minutes += 1
-			if minutes >= 60:
-				minutes = 0
-				hours += 1
-			if hours_text:
-				hours_text.text = ""
-				if hours < 10:
-					hours_text.text = "0"
-				hours_text.append_text(str(hours))
-			if minutes_text:
-				minutes_text.text = ""
-				if minutes < 10:
-					minutes_text.text = "0"
-				minutes_text.append_text(str(minutes))
+func _update_clock():
+	if not stop_clock:
+		minutes += 1
+		if minutes >= 60:
+			minutes = 0
+			hours += 1
+		if hours_text:
+			hours_text.text = ""
+			if hours < 10:
+				hours_text.text = "0"
+			hours_text.append_text(str(hours))
+		if minutes_text:
+			minutes_text.text = ""
+			if minutes < 10:
+				minutes_text.text = "0"
+			minutes_text.append_text(str(minutes))
+		if hours >= 22:
+			return # LOSE CONDITION
+		await get_tree().create_timer(0.1).timeout
+		_update_clock()
 
 func IncreaseStress() :
 	stress += 1
@@ -53,4 +55,26 @@ func DecreaseStress() :
 	if stress > 0: stress -= 1
 
 func UpdateAISpeech(text: String) :
-	pass
+	if ai_speech:
+		ai_speech.text = text
+
+func _on_Pause_button_pressed() -> void:
+	stop_clock = true
+	$PauseMenu.visible = true
+	get_tree().paused = true
+
+func _on_Resume_pressed() -> void:
+	get_tree().paused = false
+	$PauseMenu.visible = false
+	stop_clock = false
+	_update_clock()
+
+func _on_Options_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_ToMainMenu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scripts/UI/Main Menu.tscn")
+
+func _on_Exit_pressed() -> void:
+	get_tree().quit()

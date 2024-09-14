@@ -58,3 +58,6 @@ func DeactivatePopUp() :
 #region Buttons Selection
 func _on_pressed() -> void:
 	$FlowContainer.visible = true
+
+func _on_focus_exited() -> void:
+	$FlowContainer.visible = false

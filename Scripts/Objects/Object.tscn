@@ -13,7 +13,8 @@
 script = ExtResource("3_y3oox")
 Name = "Включить тревогу"
 Description = "Подъём! Кто-то проспал свое счастье, хехе!"
-function_name = ""
+player_function_name = ""
+npc_function_name = ""
 
 [node name="Object" type="TextureButton"]
 offset_left = -14.0
