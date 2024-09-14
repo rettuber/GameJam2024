@@ -5,8 +5,11 @@ extends TextureButton
 @export var ColorBugged : Color = Color("e0a8ad")
 @export var ColorUnusable : Color = Color ("a0a0a0")
 @export var Actions : Array[ObjectAction] = []; # Массив действий
+@export var Selected_Action: ObjectAction
 enum State { USABLE, BUGGED, UNUSABLE } # Состояния
 @export var state: State # Состояние
+
+@export var InteractionTime: float = 5.0
 
 @onready var popup = $CloudPopUp # Облачко поп-ап
 
@@ -18,7 +21,7 @@ func _ready() -> void:
 	for action in Actions:
 		var button = Button.new()
 		button.text = action.Name
-		button.connect("pressed", Callable(self, action.function_name))
+		button.connect("pressed", Callable(self, action.player_function_name))
 		$FlowContainer.add_child(button)
 	$FlowContainer.visible = false
 
