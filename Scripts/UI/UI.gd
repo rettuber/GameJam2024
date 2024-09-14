@@ -17,4 +17,4 @@ func UpdateAISpeech(text: String) :
 	%AISpeech.text = text
 
 func UpdateClock():
-	
+	pass
