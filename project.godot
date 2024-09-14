@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Interface="*res://Scripts/UI/UI.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 camera_move_up={

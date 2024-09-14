@@ -1,10 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://8cbgxlnb2tmb"]
+[gd_scene load_steps=10 format=3 uid="uid://8cbgxlnb2tmb"]
 
 [ext_resource type="Script" path="res://Scripts/CameraPlayer.gd" id="1_jh2oc"]
 [ext_resource type="Script" path="res://GameMaster.gd" id="1_ktbo2"]
 [ext_resource type="PackedScene" uid="uid://oo8pp1huxkwe" path="res://Scripts/UI/UI.tscn" id="2_5j1p0"]
+[ext_resource type="Texture2D" uid="uid://ci3v0y1107qlu" path="res://Assets/Tiles/Tilemap.png" id="2_tpbot"]
 [ext_resource type="PackedScene" uid="uid://cj454rliywua5" path="res://Scripts/Objects/Objects/Alarm Clock.tscn" id="2_xq5q4"]
 [ext_resource type="PackedScene" uid="uid://csi4le46i2bd3" path="res://Scripts/Human/Human.tscn" id="4_g71bu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5e4k5"]
+texture = ExtResource("2_tpbot")
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.1875, -8, -2.0625, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.9375, -8, 8, -8, 8, 8, 1.9375, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.0625, -8, -2.3125, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.9375, -8, 8, -8, 8, 8, 1.9375, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_0vevm"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_5e4k5")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_v6fp6"]
 vertices = PackedVector2Array(307.633, 188, -321.18, 188, -293.742, -159.219, 294.367, -173.75)
@@ -13,6 +50,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-303, -169, 304, -184, 
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ktbo2")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0vevm")
+format = 2
+layer_0/name = "FlatLayout"
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(1245203, 131072, 3, 1310740, 131072, 3, 1376277, 131072, 3, 1441814, 131072, 3, 1507350, 131072, 3, 1507351, 131072, 3, 1572887, 131072, 3, 1572888, 131072, 3, 1572889, 131072, 3, 1507353, 131072, 3, 1441817, 131072, 3, 1376281, 131072, 3, 1310745, 131072, 3, 1245209, 131072, 3, 1245208, 131072, 3, 1179672, 131072, 2, 1179671, 131072, 2, 1179670, 131072, 2, 1114133, 131072, 2, 1114132, 131072, 2, 1179668, 131072, 2, 1245204, 131072, 3, 1245205, 131072, 3, 1245206, 131072, 3, 1245207, 131072, 3, 1179667, 131072, 2, 1310741, 131072, 3, 1310742, 131072, 3, 1179669, 131072, 2, 1376278, 131072, 3, 1376279, 131072, 3, 1376280, 131072, 3, 1310744, 131072, 3, 1310743, 131072, 3, 1441815, 131072, 3, 1507352, 131072, 3, 1441816, 131072, 3, 1114131, 131072, 2, 1310739, 131072, 3, 1376275, 131072, 3, 1441811, 131072, 3, 1507347, 131072, 3, 1572883, 131072, 3, 1638419, 131072, 3, 1376276, 131072, 3, 1441812, 131072, 3, 1507348, 131072, 3, 1572884, 131072, 3, 1638420, 131072, 3, 1441813, 131072, 3, 1507349, 131072, 3, 1572885, 131072, 3, 1638421, 131072, 3, 1114134, 131072, 2, 1572886, 131072, 3, 1638422, 131072, 3, 1114135, 131072, 2, 1638423, 131072, 3, 1114136, 131072, 2, 1638424, 131072, 3, 1114137, 131072, 2, 1179673, 131072, 2, 1638425, 131072, 3, 1114138, 131072, 2, 1179674, 131072, 2, 1245210, 131072, 3, 1310746, 131072, 3, 1376282, 131072, 3, 1441818, 131072, 3, 1507354, 131072, 3, 1572890, 131072, 3, 1638426, 131072, 3, 1114139, 131072, 2, 1179675, 131072, 2, 1245211, 131072, 3, 1310747, 131072, 3, 1376283, 131072, 3, 1441819, 131072, 3, 1507355, 131072, 3, 1572891, 131072, 3, 1638427, 131072, 3, 1114140, 131072, 2, 1179676, 131072, 2, 1245212, 131072, 3, 1310748, 131072, 3, 1376284, 131072, 3, 1441820, 131072, 3, 1507356, 131072, 3, 1572892, 131072, 3, 1638428, 131072, 3, 1114130, 65536, 3, 1179666, 65536, 3, 1245202, 65536, 3, 1310738, 65536, 3, 1376274, 65536, 3, 1441810, 65536, 3, 1507346, 65536, 3, 1572882, 65536, 3, 1638418, 65536, 3, 1703954, 65536, 4, 1114141, 196608, 3, 1179677, 196608, 3, 1245213, 196608, 3, 1310749, 196608, 3, 1376285, 196608, 3, 1441821, 196608, 3, 1507357, 196608, 3, 1572893, 196608, 3, 1638429, 196608, 3, 1703955, 131072, 4, 1703956, 131072, 4, 1703957, 131072, 4, 1703958, 131072, 4, 1703959, 131072, 4, 1703960, 131072, 4, 1703961, 131072, 4, 1703962, 262144, 2, 1703963, 131072, 3, 1703964, 327680, 2, 1703965, 196608, 4, 983059, 131072, 1, 983060, 131072, 1, 983061, 131072, 1, 983062, 131072, 1, 983063, 131072, 1, 983064, 131072, 1, 983065, 131072, 1, 983066, 131072, 1, 983067, 131072, 1, 983068, 131072, 1, 1048594, 65536, 1, 1048605, 196608, 1, 983069, 196608, 1, 983058, 65536, 1, 1048595, 131072, 2, 1048596, 131072, 2, 1048597, 131072, 2, 1048598, 131072, 2, 1048599, 131072, 2, 1048600, 131072, 2, 1048601, 131072, 2, 1048602, 131072, 2, 1048603, 131072, 2, 1048604, 131072, 2, 917522, 65536, 2, 917523, 65536, 2, 917524, 65536, 2, 917525, 65536, 2, 917526, 65536, 2, 917527, 65536, 2, 917528, 65536, 2, 917529, 65536, 2, 917530, 65536, 2, 917531, 65536, 2, 917532, 65536, 2, 917533, 65536, 2)
+layer_1/name = "Furniture"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 z_index = -1
@@ -56,7 +101,6 @@ script = ExtResource("1_jh2oc")
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="Interface" parent="Camera2D/CanvasLayer" instance=ExtResource("2_5j1p0")]
-visible = false
 z_index = 5
 offset_left = -4.0
 offset_top = 4.0
