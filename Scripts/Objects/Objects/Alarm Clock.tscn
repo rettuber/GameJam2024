@@ -13,12 +13,18 @@ npc_function_name = "AlarmClockTurnOff"
 
 [node name="Object" instance=ExtResource("1_wdhc4")]
 script = ExtResource("2_3kipe")
+Name = null
 Actions = Array[ExtResource("3_hfl4y")]([SubResource("Resource_45r7t")])
+state = null
+InteractionTime = null
 
-[node name="CloudPopUp" parent="." index="0"]
-visible = false
+[node name="CloudImage" parent="CloudPopUp" index="0"]
+offset_left = -2.14287
+offset_top = 1.0345
+offset_right = 45.8571
+offset_bottom = 52.0345
 
-[node name="FlowContainer" parent="." index="2"]
+[node name="FlowContainer" parent="." index="3"]
 offset_left = -52.5
 offset_top = -62.0689
 offset_right = 81.5

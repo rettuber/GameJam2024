@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btjcktrnlkns5"]
+[gd_scene load_steps=13 format=3 uid="uid://btjcktrnlkns5"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectScript.gd" id="1_7u4ih"]
 [ext_resource type="Texture2D" uid="uid://govrqiogvruk" path="res://Assets/Objects/Object-sample.png" id="1_kcwus"]
@@ -15,6 +15,45 @@ Name = "Включить тревогу"
 Description = "Подъём! Кто-то проспал свое счастье, хехе!"
 player_function_name = ""
 npc_function_name = ""
+
+[sub_resource type="Animation" id="Animation_bjyfc"]
+resource_name = "Sparks"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 0.7, 0.8, 0.9, 1.2, 1.3, 1.5, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b2x3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xlges"]
+_data = {
+"RESET": SubResource("Animation_b2x3e"),
+"Sparks": SubResource("Animation_bjyfc")
+}
 
 [node name="Object" type="TextureButton"]
 offset_left = -14.0
@@ -47,7 +86,9 @@ script = ExtResource("4_878e2")
 
 [node name="CloudImage" type="TextureRect" parent="CloudPopUp"]
 layout_mode = 0
-offset_right = 48.0
+offset_left = 1.07142
+offset_top = 1.14441e-05
+offset_right = 49.0714
 offset_bottom = 51.0
 texture = ExtResource("5_j8t0w")
 
@@ -59,13 +100,18 @@ offset_bottom = 50.0
 texture = ExtResource("6_6fmh2")
 metadata/_edit_lock_ = true
 
-[node name="Modifier" type="TextureRect" parent="CloudPopUp/CloudImage"]
+[node name="Modifier" type="TextureRect" parent="."]
 layout_mode = 0
-offset_top = 1.0
-offset_right = 48.0
-offset_bottom = 50.0
+offset_left = -8.57143
+offset_top = -15.5172
+offset_right = 39.4286
+offset_bottom = 33.4828
 texture = ExtResource("7_ap2ik")
-metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Modifier"]
+libraries = {
+"": SubResource("AnimationLibrary_xlges")
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rslnx")
@@ -75,6 +121,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 alignment = 1
+metadata/_edit_lock_ = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

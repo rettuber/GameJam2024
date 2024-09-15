@@ -6,6 +6,7 @@ var stop_clock = false
 @export var hours = 5
 @export var minutes = 0
 
+var stress_bar
 var hours_text
 var minutes_text
 var ai_speech
@@ -18,6 +19,7 @@ func _ui_setup():
 	hours_text = get_node("ClockContainer/MarginContainer/HBoxContainer/ClockHours")
 	minutes_text = get_node("ClockContainer/MarginContainer/HBoxContainer/ClockMinutes")
 	ai_speech = get_node("AISpeechContainer/MarginContainer/AISpeech")
+	stress_bar = get_node("StressBar")
 	_update_clock()
 
 func _update_clock():
@@ -45,14 +47,21 @@ func IncreaseStress() :
 	stress += 1
 	match stress:
 		4:
-			$StressBar.value = stress
+			AttemptSetStressBar()
 		7: 
-			$StressBar.value = stress
+			AttemptSetStressBar()
 		10:
 			pass
+		_:
+			AttemptSetStressBar()
 
 func DecreaseStress() :
 	if stress > 0: stress -= 1
+	AttemptSetStressBar()
+
+func AttemptSetStressBar():
+	if stress_bar:
+		stress_bar.value = stress
 
 func UpdateAISpeech(text: String) :
 	if ai_speech:

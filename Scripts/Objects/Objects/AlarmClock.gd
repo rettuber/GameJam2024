@@ -6,4 +6,4 @@ func AlarmClockRing():
 	
 func AlarmClockTurnOff():
 	Selected_Action = Actions[0]
-	NPC_interaction()
+	NPC_repair()

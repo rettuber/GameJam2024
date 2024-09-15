@@ -12,11 +12,13 @@ enum State { USABLE, BUGGED, UNUSABLE } # Состояния
 @export var InteractionTime: float = 5.0
 
 @onready var popup = $CloudPopUp # Облачко поп-ап
+@onready var modifier = $Modifier
 
 # Что происходит при загрузке сцены?
 func _ready() -> void:
 	state = State.USABLE
 	DeactivatePopUp()
+	$Modifier.visible = false
 	# Генерация кнопок
 	for action in Actions:
 		var button = Button.new()
@@ -31,12 +33,19 @@ func Player_interaction() :
 	disabled = true
 	state = State.BUGGED
 	$AudioStreamPlayer.play()
+	ActivateModifier()
 	$FlowContainer.visible = false
 
+func NPC_interact():
+	ChangeIcon("res://Assets/UI/HUD/GearIcon.png")
+	ActivatePopUp()
+
 # Что происходит когда подходит НПС?
-func NPC_interaction() :
+func NPC_repair() :
+	ChangeIcon("res://Assets/UI/HUD/ScrewIcon.png")
 	ActivatePopUp()
 	await get_tree().create_timer(3.0).timeout
+	DeactivateModifier()
 	$AudioStreamPlayer.stop()
 	self_modulate = ColorUnusable
 	state = State.UNUSABLE
@@ -51,8 +60,17 @@ func ActivatePopUp() :
 func DeactivatePopUp() :
 	popup.disappear()
 
-#func ActivateModifier() :
-#	popup.toggle_modifier()
+func ActivateModifier() :
+	$Modifier.visible = true
+	$Modifier/AnimationPlayer.play("Sparks")
+
+func DeactivateModifier() :
+	$Modifier.visible = false
+	$Modifier/AnimationPlayer.stop()
+
+func ChangeIcon(icon: String) :
+	var texture : Texture2D = load(icon) 
+	$CloudPopUp/CloudImage/Icon.texture = texture
 #endregion
 
 #region Buttons Selection
