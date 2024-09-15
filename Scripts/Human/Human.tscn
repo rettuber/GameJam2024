@@ -7,13 +7,13 @@
 atlas = ExtResource("2_h3cpd")
 region = Rect2(0, 0, 16, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bsfl"]
-atlas = ExtResource("2_h3cpd")
-region = Rect2(0, 0, 16, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_uf3j6"]
 atlas = ExtResource("2_h3cpd")
 region = Rect2(16, 0, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bsfl"]
+atlas = ExtResource("2_h3cpd")
+region = Rect2(0, 0, 16, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngx2a"]
 atlas = ExtResource("2_h3cpd")
@@ -34,16 +34,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6bsfl")
-}, {
-"duration": 1.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_uf3j6")
 }, {
-"duration": 1.0,
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_6bsfl")
+}, {
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_ngx2a")
 }, {
-"duration": 1.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_1q1ak")
 }],
 "loop": true,
@@ -60,8 +60,7 @@ script = ExtResource("1_gc40w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_onjo3")
 animation = &"walking-front"
-frame = 1
-frame_progress = 0.580805
+frame_progress = 0.11428
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

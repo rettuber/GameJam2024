@@ -51,6 +51,7 @@ func _attempt_interact():
 	if current_target.state == current_target.State.USABLE:
 		print("Human is happy!")
 		Interface.DecreaseStress()
+		current_target.NPC_interact()
 		var time = current_target.InteractionTime
 		await get_tree().create_timer(time).timeout
 		_continue_movement()
@@ -64,6 +65,7 @@ func _attempt_repair():
 	_continue_movement()
 
 func _continue_movement():
+	Interface.RandomAISPeech()
 	i += 1
 	if i >= Destinations.size():
 		i = 0

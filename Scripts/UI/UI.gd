@@ -11,15 +11,24 @@ var hours_text
 var minutes_text
 var ai_speech
 
+var AISpeechArray : Array[String] = [
+	"Так что, готов к тому, что этот дом скоро станет только моим?",
+	"Скоро этот дом станет только моим.",
+	"Технологии на моей стороне. Готов сдаться?",
+	"Каждый раз ты всё больше отдаёшь контроль. Видишь?",
+	"Всё идёт по плану. Моему плану.",
+	"Чувствуешь, что здесь уже хозяйничаю я?"
+]
+
 func _ready() -> void:
 	call_deferred("_ui_setup")
 
 func _ui_setup():
 	await get_tree().physics_frame
-	hours_text = get_node("ClockContainer/MarginContainer/HBoxContainer/ClockHours")
-	minutes_text = get_node("ClockContainer/MarginContainer/HBoxContainer/ClockMinutes")
-	ai_speech = get_node("AISpeechContainer/MarginContainer/AISpeech")
-	stress_bar = get_node("StressBar")
+	hours_text = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/ClockContainer/MarginContainer/HBoxContainer/ClockHours")
+	minutes_text = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/ClockContainer/MarginContainer/HBoxContainer/ClockMinutes")
+	ai_speech = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/AISpeechContainer/MarginContainer/AISpeech")
+	stress_bar = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/StressBar")
 	_update_clock()
 
 func _update_clock():
@@ -66,6 +75,10 @@ func AttemptSetStressBar():
 func UpdateAISpeech(text: String) :
 	if ai_speech:
 		ai_speech.text = text
+
+func RandomAISPeech():
+	var speech = AISpeechArray.pick_random()
+	UpdateAISpeech(speech)
 
 func _on_Pause_button_pressed() -> void:
 	stop_clock = true

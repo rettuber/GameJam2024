@@ -32,13 +32,15 @@ func Player_interaction() :
 	self_modulate = ColorBugged
 	disabled = true
 	state = State.BUGGED
-	$AudioStreamPlayer.play()
+#	$AudioStreamPlayer.play()
 	ActivateModifier()
 	$FlowContainer.visible = false
 
 func NPC_interact():
 	ChangeIcon("res://Assets/UI/HUD/GearIcon.png")
 	ActivatePopUp()
+	await get_tree().create_timer(InteractionTime).timeout
+	DeactivatePopUp()
 
 # Что происходит когда подходит НПС?
 func NPC_repair() :
@@ -46,19 +48,22 @@ func NPC_repair() :
 	ActivatePopUp()
 	await get_tree().create_timer(3.0).timeout
 	DeactivateModifier()
-	$AudioStreamPlayer.stop()
+#	$AudioStreamPlayer.stop()
 	self_modulate = ColorUnusable
 	state = State.UNUSABLE
 	DeactivatePopUp()
 
 # Функции для управления поп-апом
 #region PopUp Management
+func ChangeIcon(icon: String) :
+	var texture : Texture2D = load(icon) 
+	$CloudPopUp/CloudImage/Icon.texture = texture
+	
 func ActivatePopUp() :
-#	popup.activate_and_set_icon(icon)
-	popup.appear()
+	$CloudPopUp.visible = true
 	
 func DeactivatePopUp() :
-	popup.disappear()
+	$CloudPopUp.visible = false
 
 func ActivateModifier() :
 	$Modifier.visible = true
@@ -67,10 +72,6 @@ func ActivateModifier() :
 func DeactivateModifier() :
 	$Modifier.visible = false
 	$Modifier/AnimationPlayer.stop()
-
-func ChangeIcon(icon: String) :
-	var texture : Texture2D = load(icon) 
-	$CloudPopUp/CloudImage/Icon.texture = texture
 #endregion
 
 #region Buttons Selection
