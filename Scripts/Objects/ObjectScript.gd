@@ -14,44 +14,38 @@ enum State { USABLE, BUGGED, UNUSABLE } # Состояния
 @onready var popup = $CloudPopUp # Облачко поп-ап
 @onready var modifier = $Modifier
 
+signal interaction_over(flag: int)
+# >=0 - NPC was interrupted by player
+# -1 - NPC repaired item
+# -2 - NPC successfully used item
+
 # Что происходит при загрузке сцены?
 func _ready() -> void:
 	state = State.USABLE
 	DeactivatePopUp()
 	$Modifier.visible = false
 	# Генерация кнопок
-	for action in Actions:
-		var button = Button.new()
-		button.text = action.Name
-		button.connect("pressed", Callable(self, action.player_function_name))
-		$FlowContainer.add_child(button)
+	generate_buttons()
 	$FlowContainer.visible = false
+
+func generate_buttons():
+	for i in Actions.size():
+		var button = Button.new()
+		var action = Actions[i]
+		button.text = action.Name
+	#	button.pressed.connect()
+		$FlowContainer.add_child(button)
 
 # Что происходит когда игрок взаимодействовал?
 func Player_interaction() :
-	self_modulate = ColorBugged
-	disabled = true
-	state = State.BUGGED
-#	$AudioStreamPlayer.play()
-	ActivateModifier()
-	$FlowContainer.visible = false
+	pass
 
 func NPC_interact():
-	ChangeIcon("res://Assets/UI/HUD/GearIcon.png")
-	ActivatePopUp()
-	await get_tree().create_timer(InteractionTime).timeout
-	DeactivatePopUp()
+	pass
 
 # Что происходит когда подходит НПС?
 func NPC_repair() :
-	ChangeIcon("res://Assets/UI/HUD/ScrewIcon.png")
-	ActivatePopUp()
-	await get_tree().create_timer(3.0).timeout
-	DeactivateModifier()
-#	$AudioStreamPlayer.stop()
-	self_modulate = ColorUnusable
-	state = State.UNUSABLE
-	DeactivatePopUp()
+	pass
 
 # Функции для управления поп-апом
 #region PopUp Management

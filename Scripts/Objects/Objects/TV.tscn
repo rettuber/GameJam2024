@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4cq5cpmxbkwg"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_p2uwx"]
+[ext_resource type="Texture2D" uid="uid://3dhu03ylfqyp" path="res://Assets/Objects/TV.png" id="2_guedt"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/TV.gd" id="3_5nc0f"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_hnwso"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="5_wnbmk"]
+
+[sub_resource type="Resource" id="Resource_o48yi"]
+script = ExtResource("3_hnwso")
+Name = "Включить \"Импровизаторов\""
+Description = "Ну что, снова в мир бесконечных шоу? Главное – не потеряйся."
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
+
+[sub_resource type="Resource" id="Resource_ugeta"]
+script = ExtResource("3_hnwso")
+Name = "Прекратить просмотр"
+Description = "Ой, слишком много контента для одного дня? Возвращайся к своей стене."
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0keuv"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6axx"]
+bg_color = Color(0.839216, 0.85098, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d77ky"]
+bg_color = Color(0.423529, 0.435294, 0.529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="Object" instance=ExtResource("1_p2uwx")]
+texture_normal = ExtResource("2_guedt")
+texture_pressed = ExtResource("2_guedt")
+texture_hover = ExtResource("2_guedt")
+texture_disabled = ExtResource("2_guedt")
+script = ExtResource("3_5nc0f")
+Name = "Телевизор"
+Actions = Array[ExtResource("3_hnwso")]([SubResource("Resource_o48yi"), SubResource("Resource_ugeta")])
+
+[node name="CloudImage" parent="CloudPopUp" index="0"]
+offset_left = -12.8572
+offset_top = -1.03447
+offset_right = 35.1428
+offset_bottom = 49.9655
+
+[node name="Modifier" parent="." index="1"]
+offset_left = 4.28571
+offset_top = -16.5517
+offset_right = 52.2857
+offset_bottom = 32.4483
+
+[node name="FlowContainer" parent="." index="2"]
+z_index = 15
+offset_left = -71.7857
+offset_top = -65.1724
+offset_right = 103.214
+offset_bottom = -8.17239
+last_wrap_alignment = 2
+vertical = true
+
+[node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wnbmk")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_0keuv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l6axx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d77ky")
+text = "Включить \"Импровизаторов\""
+
+[node name="TurnOff" type="Button" parent="FlowContainer" index="1"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wnbmk")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_0keuv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l6axx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d77ky")
+text = "Прекратить просмотр"
+
+[connection signal="pressed" from="FlowContainer/TurnOn" to="." method="Toggle" binds= [0]]
+[connection signal="pressed" from="FlowContainer/TurnOff" to="." method="Toggle" binds= [1]]

@@ -44,25 +44,33 @@ func _physics_process(delta):
 
 func _attempt_interact():
 	if current_target.state == current_target.State.BUGGED:
-		print("Human is angry!")
-		Interface.UpdateAISpeech("Человек сердится! Ахахаха!")
+	#	print("Human is angry!")
 		Interface.IncreaseStress()
-		_attempt_repair()
+		draw_call(-1)
 	if current_target.state == current_target.State.USABLE:
-		print("Human is happy!")
-		Interface.DecreaseStress()
-		current_target.NPC_interact()
-		var time = current_target.InteractionTime
-		await get_tree().create_timer(time).timeout
-		_continue_movement()
+	#	print("Human is happy!")
+		pass
+	current_target.connect("interaction_over", interaction_over)
 
-func _attempt_repair():
-	print("Human attempting repairs!")
-	var callable = current_target.Selected_Action.npc_function_name
-	current_target.call(callable)
-	await get_tree().create_timer(3.0).timeout
-	print("Human finished repairs.")
+func interaction_over(flag: int) :
+	if flag >= 0:
+		Interface.IncreaseStress()
+		draw_call(-1)
+	if flag == -1:
+		pass
+	if flag == -2:
+		Interface.DecreaseStress()
+		draw_call(flag)
+	current_target.interaction_over.disconnect(interaction_over)
 	_continue_movement()
+
+func draw_call(i: int) :
+	var callable
+	if not current_target.Selected_Action:
+		current_target.NPC_interact()
+	else:
+		callable = current_target.Selected_Action.npc_function_name
+		current_target.call(callable, i)
 
 func _continue_movement():
 	Interface.RandomAISPeech()

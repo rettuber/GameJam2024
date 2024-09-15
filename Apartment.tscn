@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b3npu47n6bheh" path="res://Assets/UI/HUD/back.png" id="2_hfhfx"]
 [ext_resource type="Texture2D" uid="uid://ci3v0y1107qlu" path="res://Assets/Tiles/Tilemap.png" id="2_tpbot"]
 [ext_resource type="PackedScene" uid="uid://cj454rliywua5" path="res://Scripts/Objects/Objects/Alarm Clock.tscn" id="2_xq5q4"]
+[ext_resource type="Texture2D" uid="uid://dhe5atsm8nodw" path="res://Assets/Tiles/furniture.png" id="3_ekwvl"]
 [ext_resource type="PackedScene" uid="uid://csi4le46i2bd3" path="res://Scripts/Human/Human.tscn" id="4_g71bu"]
+[ext_resource type="PackedScene" uid="uid://d4cq5cpmxbkwg" path="res://Scripts/Objects/Objects/TV.tscn" id="5_fxuwr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3vrxt"]
 vertices = PackedVector2Array(8, -4, 8, 4, 4, 8, -4, 8, -8, 4, -8, -4, -4, -8, 4, -8)
