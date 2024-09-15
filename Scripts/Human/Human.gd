@@ -3,11 +3,13 @@ extends CharacterBody2D
 var StressLevel: float = 0.0
 var movement_speed: float = 200.0
 var current_target_position: Vector2 = Vector2(60.0,180.0)
-var current_target : InteractableObject
+var current_target
 @export var Destinations: Array[InteractableObject] = []
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 var movement_allowed = false
 var i = 0
+
+signal movement_over
 
 #region Actor Setup
 func _ready():
@@ -19,11 +21,11 @@ func actor_setup():
 	await get_tree().physics_frame
 	current_target = Destinations[i]
 	set_movement_target(current_target)
-	movement_allowed = true
+	movement_allowed = false
 #endregion
 
 #region Movement
-func set_movement_target(target: InteractableObject):
+func set_movement_target(target):
 	current_target = target
 	current_target_position = current_target.global_position
 	navigation_agent.target_position = current_target_position
@@ -31,7 +33,9 @@ func set_movement_target(target: InteractableObject):
 func _physics_process(delta):
 	if movement_allowed:
 		if navigation_agent.is_navigation_finished():
-			_attempt_interact()
+			movement_over.emit()
+			if current_target is InteractableObject:
+				_attempt_interact()
 			movement_allowed = false
 			return
 	
@@ -44,23 +48,26 @@ func _physics_process(delta):
 
 func _attempt_interact():
 	if current_target.state == current_target.State.BUGGED:
-	#	print("Human is angry!")
 		Interface.IncreaseStress()
+		if Interface.stress >= 9:
+			_exit_game()
+			return
 		draw_call(-1)
 	if current_target.state == current_target.State.USABLE:
-	#	print("Human is happy!")
-		pass
+		draw_call(-2)
 	current_target.connect("interaction_over", interaction_over)
 
 func interaction_over(flag: int) :
 	if flag >= 0:
 		Interface.IncreaseStress()
+		if Interface.stress >= 9:
+			_exit_game()
+			return
 		draw_call(-1)
 	if flag == -1:
 		pass
 	if flag == -2:
 		Interface.DecreaseStress()
-		draw_call(flag)
 	current_target.interaction_over.disconnect(interaction_over)
 	_continue_movement()
 
@@ -79,3 +86,6 @@ func _continue_movement():
 		i = 0
 	set_movement_target(Destinations[i])
 	movement_allowed = true
+
+func _exit_game():
+	Interface.max_stress_reached.emit()

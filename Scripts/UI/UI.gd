@@ -11,6 +11,8 @@ var hours_text
 var minutes_text
 var ai_speech
 
+signal max_stress_reached
+
 var AISpeechArray : Array[String] = [
 	"Так что, готов к тому, что этот дом скоро станет только моим?",
 	"Скоро этот дом станет только моим.",
@@ -29,7 +31,6 @@ func _ui_setup():
 	minutes_text = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/ClockContainer/MarginContainer/HBoxContainer/ClockMinutes")
 	ai_speech = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/AISpeechContainer/MarginContainer/AISpeech")
 	stress_bar = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/StressBar")
-	_update_clock()
 
 func _update_clock():
 	if not stop_clock:
@@ -48,7 +49,8 @@ func _update_clock():
 				minutes_text.text = "0"
 			minutes_text.append_text(str(minutes))
 		if hours >= 22:
-			return # LOSE CONDITION
+			print("You lost!")
+			get_tree().change_scene_to_file("res://Scripts/UI/Main Menu.tscn")
 		await get_tree().create_timer(0.1).timeout
 		_update_clock()
 
@@ -56,13 +58,12 @@ func IncreaseStress() :
 	stress += 1
 	match stress:
 		4:
-			AttemptSetStressBar()
-		7: 
-			AttemptSetStressBar()
-		10:
 			pass
-		_:
-			AttemptSetStressBar()
+		7: 
+			pass
+		9:
+			max_stress_reached.emit()
+	AttemptSetStressBar()
 
 func DecreaseStress() :
 	if stress > 0: stress -= 1
