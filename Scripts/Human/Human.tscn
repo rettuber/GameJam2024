@@ -1,20 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://csi4le46i2bd3"]
+[gd_scene load_steps=10 format=3 uid="uid://csi4le46i2bd3"]
 
 [ext_resource type="Script" path="res://Scripts/Human/Human.gd" id="1_gc40w"]
-[ext_resource type="Texture2D" uid="uid://blhx2al0j0uqb" path="res://icon.svg" id="2_margg"]
+[ext_resource type="Texture2D" uid="uid://cbnsvxjcflsy0" path="res://Assets/Human/Human.png" id="2_h3cpd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xps1p"]
-atlas = ExtResource("2_margg")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_e60xb"]
+atlas = ExtResource("2_h3cpd")
+region = Rect2(0, 0, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bsfl"]
+atlas = ExtResource("2_h3cpd")
+region = Rect2(0, 0, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf3j6"]
+atlas = ExtResource("2_h3cpd")
+region = Rect2(16, 0, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngx2a"]
+atlas = ExtResource("2_h3cpd")
+region = Rect2(32, 0, 16, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q1ak"]
+atlas = ExtResource("2_h3cpd")
+region = Rect2(48, 0, 16, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onjo3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xps1p")
+"texture": SubResource("AtlasTexture_e60xb")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle-front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bsfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf3j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngx2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q1ak")
+}],
+"loop": true,
+"name": &"walking-front",
 "speed": 5.0
 }]
 
@@ -25,8 +58,10 @@ size = Vector2(16, 32)
 script = ExtResource("1_gc40w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.125, 0.234375)
 sprite_frames = SubResource("SpriteFrames_onjo3")
+animation = &"walking-front"
+frame = 1
+frame_progress = 0.580805
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
