@@ -89,6 +89,7 @@ mouse_filter = 2
 script = ExtResource("1_gp83y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
