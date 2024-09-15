@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://citivpc0031if"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_jmhfa"]
+[ext_resource type="Texture2D" uid="uid://chq685ci48vck" path="res://Assets/Objects/CoffeeMaker.png" id="2_5mwkm"]
+
+[node name="Object" instance=ExtResource("1_jmhfa")]
+texture_normal = ExtResource("2_5mwkm")
+texture_pressed = ExtResource("2_5mwkm")
+texture_hover = ExtResource("2_5mwkm")
+texture_disabled = ExtResource("2_5mwkm")
+Name = "CoffeeMaker"

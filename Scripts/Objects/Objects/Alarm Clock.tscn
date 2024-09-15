@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj454rliywua5"]
+[gd_scene load_steps=9 format=3 uid="uid://cj454rliywua5"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_wdhc4"]
+[ext_resource type="Texture2D" uid="uid://cj1brwjp5pggn" path="res://Assets/Objects/Clock.png" id="2_em3ay"]
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_hfl4y"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="4_hl0ke"]
 
 [sub_resource type="Resource" id="Resource_45r7t"]
 script = ExtResource("3_hfl4y")
@@ -10,7 +12,40 @@ Description = "Подъём! Кто-то проспал свое счастье,
 player_function_name = "AlarmClockRing"
 npc_function_name = "AlarmClockTurnOff"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfuqi"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqlbu"]
+bg_color = Color(0.839216, 0.85098, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj6ul"]
+bg_color = Color(0.423529, 0.435294, 0.529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
 [node name="Object" instance=ExtResource("1_wdhc4")]
+texture_normal = ExtResource("2_em3ay")
+texture_pressed = ExtResource("2_em3ay")
+texture_hover = ExtResource("2_em3ay")
+texture_disabled = ExtResource("2_em3ay")
 Name = "Будильник"
 Actions = Array[ExtResource("3_hfl4y")]([SubResource("Resource_45r7t")])
 
@@ -26,3 +61,17 @@ offset_top = -62.0689
 offset_right = 81.5
 offset_bottom = -4.06894
 vertical = true
+
+[node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_hl0ke")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_yfuqi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sqlbu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wj6ul")
+text = "Включить тревогу"
