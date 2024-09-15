@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Interface="*res://Scripts/UI/UI.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
 [input]
 
 camera_move_up={
