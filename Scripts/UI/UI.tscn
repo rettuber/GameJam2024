@@ -1,39 +1,36 @@
-[gd_scene load_steps=19 format=3 uid="uid://oo8pp1huxkwe"]
+[gd_scene load_steps=18 format=3 uid="uid://oo8pp1huxkwe"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
 [ext_resource type="Texture2D" uid="uid://71xw8hjuxllo" path="res://Assets/UI/BG.png" id="2_sg202"]
 [ext_resource type="Texture2D" uid="uid://bu4nwas3jmpyb" path="res://Assets/UI/HUD/AngerScaleBG.png" id="3_celrg"]
 [ext_resource type="Texture2D" uid="uid://bgwwa0y3rm55m" path="res://Assets/UI/HUD/AngerScale.png" id="3_kbp4m"]
-[ext_resource type="Texture2D" uid="uid://f1i8wl3yqq0v" path="res://Assets/UI/HUD/HumanFace.png" id="3_nvgow"]
 [ext_resource type="Texture2D" uid="uid://bk2klv3ed2n04" path="res://Assets/UI/HUD/SpeechBubble.png" id="4_6cl5i"]
 [ext_resource type="Texture2D" uid="uid://b4n72wp48krhc" path="res://Assets/UI/HUD/Eye.png" id="4_feoln"]
+[ext_resource type="Texture2D" uid="uid://cmmdc2qd8sxns" path="res://Assets/UI/emotions.png" id="5_ckob2"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="7_jj418"]
 [ext_resource type="Texture2D" uid="uid://ci1wu8j8ogxtk" path="res://Assets/UI/HUD/GearIcon.png" id="9_51i8y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3sjeq"]
-atlas = ExtResource("3_nvgow")
-region = Rect2(624, 0, 156, 157)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2811r"]
+atlas = ExtResource("5_ckob2")
+region = Rect2(110, 0, 55, 55)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dj5bu"]
-load_path = "res://.godot/imported/HumanFace.png-c8d02e9361d57ba157c13a3ffdb2af7a.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbplh"]
+atlas = ExtResource("5_ckob2")
+region = Rect2(0, 0, 55, 55)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_08gk0"]
-atlas = SubResource("CompressedTexture2D_dj5bu")
-region = Rect2(312, 0, 156, 157)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8k36"]
+atlas = ExtResource("5_ckob2")
+region = Rect2(110, 0, 55, 55)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qg045"]
-atlas = ExtResource("3_nvgow")
-region = Rect2(468, 0, 156, 157)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xme6g"]
-atlas = ExtResource("3_nvgow")
-region = Rect2(312, 0, 156, 157)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk2ph"]
+atlas = ExtResource("5_ckob2")
+region = Rect2(55, 0, 55, 55)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkwm4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3sjeq")
+"texture": SubResource("AtlasTexture_2811r")
 }],
 "loop": true,
 "name": &"fuming",
@@ -41,7 +38,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_08gk0")
+"texture": SubResource("AtlasTexture_pbplh")
 }],
 "loop": true,
 "name": &"happy",
@@ -49,7 +46,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qg045")
+"texture": SubResource("AtlasTexture_h8k36")
 }],
 "loop": true,
 "name": &"mad",
@@ -57,7 +54,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xme6g")
+"texture": SubResource("AtlasTexture_mk2ph")
 }],
 "loop": true,
 "name": &"unhappy",
@@ -128,9 +125,9 @@ metadata/_edit_lock_ = true
 [node name="HumanFace" type="AnimatedSprite2D" parent="StressBar"]
 unique_name_in_owner = true
 position = Vector2(46.5391, -69)
-scale = Vector2(0.878706, 0.890625)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_wkwm4")
-animation = &"happy"
+animation = &"fuming"
 autoplay = "happy"
 
 [node name="AISpeechContainer" type="PanelContainer" parent="."]
