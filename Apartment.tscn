@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://8cbgxlnb2tmb"]
+[gd_scene load_steps=31 format=4 uid="uid://8cbgxlnb2tmb"]
 
 [ext_resource type="Script" path="res://Scripts/CameraPlayer.gd" id="1_jh2oc"]
 [ext_resource type="Script" path="res://GameMaster.gd" id="1_ktbo2"]
@@ -8,6 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://cj454rliywua5" path="res://Scripts/Objects/Objects/Alarm Clock.tscn" id="2_xq5q4"]
 [ext_resource type="PackedScene" uid="uid://csi4le46i2bd3" path="res://Scripts/Human/Human.tscn" id="4_g71bu"]
 [ext_resource type="PackedScene" uid="uid://d4cq5cpmxbkwg" path="res://Scripts/Objects/Objects/TV.tscn" id="6_siyc6"]
+[ext_resource type="PackedScene" uid="uid://ctx50sdpwra27" path="res://Scripts/Objects/Objects/Curtains.tscn" id="8_b43rg"]
+[ext_resource type="PackedScene" uid="uid://xf2kbk82p0gr" path="res://Scripts/Objects/Objects/MusicBox.tscn" id="9_kh1mq"]
+[ext_resource type="PackedScene" uid="uid://citivpc0031if" path="res://Scripts/Objects/Objects/CoffeeMaker.tscn" id="9_m486d"]
+[ext_resource type="PackedScene" uid="uid://csmcth0vk1bea" path="res://Scripts/Objects/Objects/Toilet.tscn" id="10_ljihx"]
+[ext_resource type="PackedScene" uid="uid://c1ko8ix1xr7fp" path="res://Scripts/Objects/Objects/Washer.tscn" id="11_g2axe"]
+[ext_resource type="PackedScene" uid="uid://dn2tjx5l3re31" path="res://Scripts/Objects/Objects/Dishwasher.tscn" id="12_4m273"]
+[ext_resource type="PackedScene" uid="uid://ctpw4aeckgeo5" path="res://Scripts/Objects/Objects/Aircon.tscn" id="13_2nmkw"]
+[ext_resource type="PackedScene" uid="uid://dbwenqompumrr" path="res://Scripts/Objects/Objects/Comp.tscn" id="14_6rd1a"]
+[ext_resource type="PackedScene" uid="uid://dloa5ooqy2agk" path="res://Scripts/Objects/Objects/Printer.tscn" id="15_0immw"]
+[ext_resource type="PackedScene" uid="uid://c6hprii6v5i6i" path="res://Scripts/Objects/Objects/Phone.tscn" id="16_vud6j"]
+[ext_resource type="PackedScene" uid="uid://82cnwpld3p4y" path="res://Scripts/Objects/Objects/Robovac.tscn" id="17_m3wsp"]
+[ext_resource type="PackedScene" uid="uid://bodthbb4guhaj" path="res://Scripts/Objects/Objects/SmartPanel.tscn" id="18_o8sn0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3vrxt"]
 vertices = PackedVector2Array(8, -4, 8, 4, 4, 8, -4, 8, -8, 4, -8, -4, -4, -8, 4, -8)
@@ -275,11 +287,108 @@ offset_top = 250.0
 offset_right = 191.0
 offset_bottom = 280.0
 
-[node name="Object" parent="Objects" instance=ExtResource("6_siyc6")]
+[node name="TV" parent="Objects" instance=ExtResource("6_siyc6")]
 offset_left = 872.0
 offset_top = 191.0
 offset_right = 906.0
 offset_bottom = 221.0
+Name = "TV"
+
+[node name="CoffeeMaker" parent="Objects" instance=ExtResource("9_m486d")]
+offset_left = 525.0
+offset_top = 209.0
+offset_right = 555.0
+offset_bottom = 239.0
+
+[node name="Curtains" parent="Objects" instance=ExtResource("8_b43rg")]
+offset_left = 197.0
+offset_top = 169.0
+offset_right = 237.0
+offset_bottom = 224.0
+
+[node name="Curtains2" parent="Objects" instance=ExtResource("8_b43rg")]
+offset_left = 597.0
+offset_top = 170.0
+offset_right = 637.0
+offset_bottom = 225.0
+
+[node name="Curtains3" parent="Objects" instance=ExtResource("8_b43rg")]
+offset_left = 694.0
+offset_top = 169.0
+offset_right = 734.0
+offset_bottom = 224.0
+
+[node name="MusicBox" parent="Objects" instance=ExtResource("9_kh1mq")]
+offset_left = 937.0
+offset_top = 203.0
+offset_right = 967.0
+offset_bottom = 233.0
+
+[node name="Object" parent="Objects" instance=ExtResource("10_ljihx")]
+offset_left = 402.0
+offset_top = 619.0
+offset_right = 432.0
+offset_bottom = 649.0
+
+[node name="Object2" parent="Objects" instance=ExtResource("11_g2axe")]
+offset_left = 395.0
+offset_top = 506.0
+offset_right = 425.0
+offset_bottom = 537.0
+
+[node name="Object3" parent="Objects" instance=ExtResource("12_4m273")]
+offset_left = 474.0
+offset_top = 231.0
+offset_right = 504.0
+offset_bottom = 261.0
+
+[node name="Object4" parent="Objects" instance=ExtResource("13_2nmkw")]
+offset_left = 646.0
+offset_top = 174.0
+offset_right = 679.0
+offset_bottom = 204.0
+
+[node name="Object5" parent="Objects" instance=ExtResource("14_6rd1a")]
+offset_left = 554.0
+offset_top = 567.0
+offset_right = 584.0
+offset_bottom = 597.0
+
+[node name="Object6" parent="Objects" instance=ExtResource("15_0immw")]
+offset_left = 602.0
+offset_top = 574.0
+offset_right = 632.0
+offset_bottom = 604.0
+
+[node name="Object7" parent="Objects" instance=ExtResource("16_vud6j")]
+offset_left = 518.0
+offset_top = 583.0
+offset_right = 548.0
+offset_bottom = 613.0
+
+[node name="Object8" parent="Objects" instance=ExtResource("17_m3wsp")]
+offset_left = 1036.0
+offset_top = 231.0
+offset_right = 1066.0
+offset_bottom = 261.0
+
+[node name="Object9" parent="Objects" instance=ExtResource("18_o8sn0")]
+offset_left = 981.0
+offset_top = 203.0
+offset_right = 1011.0
+offset_bottom = 233.0
+
+[node name="Object10" parent="Objects" instance=ExtResource("18_o8sn0")]
+offset_left = 388.0
+offset_top = 305.0
+offset_right = 418.0
+offset_bottom = 335.0
+
+[node name="Object11" parent="Objects" instance=ExtResource("18_o8sn0")]
+offset_left = 735.0
+offset_top = 506.0
+offset_right = 765.0
+offset_bottom = 536.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -289,6 +398,7 @@ limit_right = 2000
 limit_bottom = 2000
 position_smoothing_enabled = true
 script = ExtResource("1_jh2oc")
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 

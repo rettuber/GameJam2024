@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctpw4aeckgeo5"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_skmtt"]
+[ext_resource type="Texture2D" uid="uid://ds60d2gekbm3i" path="res://Assets/Objects/Aircon.png" id="2_3fwvx"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_8fulj"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="4_hn1by"]
+
+[sub_resource type="Resource" id="Resource_dny17"]
+script = ExtResource("3_8fulj")
+Name = "Криотерапия"
+Description = "Душно здесь как-то. Время освежиться. "
+player_function_name = ""
+npc_function_name = ""
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15rj3"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdf5y"]
+bg_color = Color(0.839216, 0.85098, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdeak"]
+bg_color = Color(0.423529, 0.435294, 0.529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="Object" instance=ExtResource("1_skmtt")]
+texture_normal = ExtResource("2_3fwvx")
+texture_pressed = ExtResource("2_3fwvx")
+texture_hover = ExtResource("2_3fwvx")
+texture_disabled = ExtResource("2_3fwvx")
+Name = "Aircon"
+Actions = Array[ExtResource("3_8fulj")]([SubResource("Resource_dny17")])
+
+[node name="FlowContainer" parent="." index="2"]
+offset_left = -1.07143
+offset_top = -33.1034
+offset_right = 75.9286
+offset_bottom = 6.89656
+
+[node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_hn1by")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_15rj3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fdf5y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mdeak")
+text = "Криотерапия"

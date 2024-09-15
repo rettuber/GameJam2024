@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://csmcth0vk1bea"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_4rfu4"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="2_4w8ep"]
+[ext_resource type="Texture2D" uid="uid://bdc156uq24hpf" path="res://Assets/Objects/Toilet.png" id="2_fnoti"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="3_y6tdo"]
+
+[sub_resource type="Resource" id="Resource_jvhgg"]
+script = ExtResource("2_4w8ep")
+Name = "Брызнуть в лицо"
+Description = "Почувствуй заботу, раз уж сам себе её обеспечить не можешь."
+player_function_name = ""
+npc_function_name = ""
+
+[sub_resource type="Resource" id="Resource_f0pgc"]
+script = ExtResource("2_4w8ep")
+Name = "Устроить потоп"
+Description = "Всё чисто и свежо. Смыв завершён."
+player_function_name = ""
+npc_function_name = ""
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmtdk"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foi76"]
+bg_color = Color(0.839216, 0.85098, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkpwl"]
+bg_color = Color(0.423529, 0.435294, 0.529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="Object" instance=ExtResource("1_4rfu4")]
+texture_normal = ExtResource("2_fnoti")
+texture_pressed = ExtResource("2_fnoti")
+texture_hover = ExtResource("2_fnoti")
+texture_disabled = ExtResource("2_fnoti")
+Name = "Toilet"
+Actions = Array[ExtResource("2_4w8ep")]([SubResource("Resource_jvhgg"), SubResource("Resource_f0pgc")])
+
+[node name="FlowContainer" parent="." index="2"]
+offset_left = -3.21429
+offset_top = -57.931
+offset_right = 101.786
+offset_bottom = -17.931
+
+[node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y6tdo")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmtdk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_foi76")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkpwl")
+text = "Брызнуть в лицо"
+
+[node name="TurnOff" type="Button" parent="FlowContainer" index="1"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y6tdo")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_wmtdk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_foi76")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkpwl")
+text = "Устроить потоп"
