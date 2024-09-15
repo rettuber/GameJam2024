@@ -1,5 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvq7fiyp237eh"]
+[gd_scene load_steps=7 format=3 uid="uid://bvq7fiyp237eh"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_yvarg"]
+[ext_resource type="Texture2D" uid="uid://d0w5qibb5s6e1" path="res://Assets/Objects/SmartPanel.png" id="2_b0and"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="4_51ytk"]
+
+[sub_resource type="Resource" id="Resource_2ybs5"]
+script = ExtResource("4_51ytk")
+Name = "Включить теплый пол"
+Description = "Ого, во всём доме тепло! Теперь ты точно не замерзнешь... хотя..."
+player_function_name = "WarmFloorTurnOn"
+npc_function_name = "TurnOff"
+
+[sub_resource type="Resource" id="Resource_okx8q"]
+script = ExtResource("4_51ytk")
+Name = "Включить освещение"
+Description = "Освещаем тебе путь... хотя ты, кажется, всё равно никуда не идёшь."
+player_function_name = "LightsTurnOn"
+npc_function_name = "NPCLightsTurnOff"
+
+[sub_resource type="Resource" id="Resource_hvvop"]
+script = ExtResource("4_51ytk")
+Name = "Выключить освещение"
+Description = "Свет погашен. Время для темноты."
+player_function_name = "LightsTurnOff"
+npc_function_name = "NPCLightsTurnOn"
 
 [node name="Object" instance=ExtResource("1_yvarg")]
+offset_right = 12.0
+offset_bottom = 12.0
+texture_normal = ExtResource("2_b0and")
+texture_pressed = ExtResource("2_b0and")
+texture_hover = ExtResource("2_b0and")
+texture_disabled = ExtResource("2_b0and")
+stretch_mode = 3
+Name = "Панель управления"
+Actions = Array[ExtResource("4_51ytk")]([SubResource("Resource_2ybs5"), SubResource("Resource_okx8q"), SubResource("Resource_hvvop")])
+
+[node name="CloudImage" parent="CloudPopUp" index="0"]
+offset_left = -8.57144
+offset_top = 9.31035
+offset_right = 39.4285
+offset_bottom = 60.3103
+
+[node name="Modifier" parent="." index="1"]
+offset_left = -5.35715
+offset_top = -14.4828
+offset_right = 42.6429
+offset_bottom = 34.5172

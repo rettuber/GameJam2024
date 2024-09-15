@@ -1,19 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://btjcktrnlkns5"]
+[gd_scene load_steps=9 format=3 uid="uid://btjcktrnlkns5"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectScript.gd" id="1_7u4ih"]
 [ext_resource type="Texture2D" uid="uid://govrqiogvruk" path="res://Assets/Objects/Object-sample.png" id="1_kcwus"]
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_y3oox"]
 [ext_resource type="Texture2D" uid="uid://bxtnw2yg8kufj" path="res://Assets/UI/Cloud-sample.png" id="5_j8t0w"]
-[ext_resource type="AudioStream" uid="uid://cxp3o0l4ttx4v" path="res://Assets/Objects/AlarmClockBugged.wav" id="5_rslnx"]
 [ext_resource type="Texture2D" uid="uid://b688x37b6ymjw" path="res://Assets/UI/HUD/ScrewIcon.png" id="6_kl0dh"]
 [ext_resource type="Texture2D" uid="uid://8uc1h3alye2" path="res://Assets/UI/Modifier-sample.png" id="7_ap2ik"]
 
-[sub_resource type="Resource" id="Resource_3n3f5"]
-script = ExtResource("3_y3oox")
-Name = "Включить тревогу"
-Description = "Подъём! Кто-то проспал свое счастье, хехе!"
-player_function_name = ""
-npc_function_name = ""
+[sub_resource type="Animation" id="Animation_b2x3e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_bjyfc"]
 resource_name = "Sparks"
@@ -33,21 +39,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_b2x3e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xlges"]
 _data = {
 "RESET": SubResource("Animation_b2x3e"),
@@ -65,9 +56,8 @@ texture_pressed = ExtResource("1_kcwus")
 texture_hover = ExtResource("1_kcwus")
 texture_disabled = ExtResource("1_kcwus")
 script = ExtResource("1_7u4ih")
-ColorBugged = Color(0.879856, 0.658647, 0.676625, 1)
-ColorUnusable = Color(0.628859, 0.628859, 0.628859, 1)
-Actions = Array[ExtResource("3_y3oox")]([SubResource("Resource_3n3f5")])
+ColorBugged = Color(0.870505, 0.00445975, 0.369701, 1)
+ColorUnusable = Color(0.488054, 0.488054, 0.488054, 1)
 
 [node name="CloudPopUp" type="Control" parent="."]
 z_index = 5
@@ -111,9 +101,6 @@ texture = ExtResource("7_ap2ik")
 libraries = {
 "": SubResource("AnimationLibrary_xlges")
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_rslnx")
 
 [node name="FlowContainer" type="FlowContainer" parent="."]
 layout_mode = 0
