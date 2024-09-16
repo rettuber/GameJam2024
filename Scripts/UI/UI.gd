@@ -6,6 +6,9 @@ var stop_clock = false
 @export var hours = 5
 @export var minutes = 0
 
+@onready var human_face: AnimatedSprite2D = %HumanFace
+
+
 var stress_bar
 var hours_text
 var minutes_text
@@ -33,6 +36,7 @@ func _ui_setup():
 	ai_speech = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/AISpeechContainer/MarginContainer/AISpeech")
 	stress_bar = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/StressBar")
 	audio = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/AudioStreamPlayer")
+	human_face = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/StressBar/HumanFace")
 
 func play_music():
 	audio.play()
@@ -64,9 +68,11 @@ func IncreaseStress() :
 	stress += 1
 	match stress:
 		4:
-			audio.stream = load("res://Assets/music_2.wav")
+			#audio.stream = load("res://Assets/music_2.wav")
+			human_face.play("unhappy")
 		7: 
-			audio.stream = load("res://Assets/music_3.wav")
+			#audio.stream = load("res://Assets/music_3.wav")
+			human_face.play("mad")
 		9:
 			audio.stop()
 			max_stress_reached.emit()

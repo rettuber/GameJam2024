@@ -1,15 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://oo8pp1huxkwe"]
+[gd_scene load_steps=22 format=3 uid="uid://oo8pp1huxkwe"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
 [ext_resource type="Texture2D" uid="uid://71xw8hjuxllo" path="res://Assets/UI/BG.png" id="2_sg202"]
-[ext_resource type="Texture2D" uid="uid://bu4nwas3jmpyb" path="res://Assets/UI/HUD/AngerScaleBG.png" id="3_celrg"]
 [ext_resource type="Texture2D" uid="uid://bgwwa0y3rm55m" path="res://Assets/UI/HUD/AngerScale.png" id="3_kbp4m"]
+[ext_resource type="Texture2D" uid="uid://chm2b6s8iw0kx" path="res://Assets/UI/HUD/Scale.png" id="3_q21gd"]
 [ext_resource type="Texture2D" uid="uid://bk2klv3ed2n04" path="res://Assets/UI/HUD/SpeechBubble.png" id="4_6cl5i"]
 [ext_resource type="Texture2D" uid="uid://b4n72wp48krhc" path="res://Assets/UI/HUD/Eye.png" id="4_feoln"]
 [ext_resource type="Texture2D" uid="uid://cmmdc2qd8sxns" path="res://Assets/UI/emotions.png" id="5_ckob2"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="7_jj418"]
 [ext_resource type="Texture2D" uid="uid://ci1wu8j8ogxtk" path="res://Assets/UI/HUD/GearIcon.png" id="9_51i8y"]
 [ext_resource type="AudioStream" uid="uid://1b0kl2c8vqnw" path="res://Assets/music_1.wav" id="10_kh56v"]
+[ext_resource type="AudioStream" uid="uid://36phkf57l2yu" path="res://Assets/music_2.wav" id="11_k8m3e"]
+[ext_resource type="AudioStream" uid="uid://qq2b2sjil5nb" path="res://Assets/music_3.wav" id="12_fnb24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2811r"]
 atlas = ExtResource("5_ckob2")
@@ -75,6 +77,12 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_1xvtl"]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_1tx5b"]
+stream_count = 3
+stream_0 = ExtResource("10_kh56v")
+stream_1 = ExtResource("11_k8m3e")
+stream_2 = ExtResource("12_fnb24")
+
 [node name="Interface" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -119,16 +127,14 @@ mouse_filter = 0
 max_value = 9.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_under = ExtResource("3_celrg")
+texture_under = ExtResource("3_q21gd")
 texture_progress = ExtResource("3_kbp4m")
-metadata/_edit_lock_ = true
 
 [node name="HumanFace" type="AnimatedSprite2D" parent="StressBar"]
-unique_name_in_owner = true
 position = Vector2(46.5391, -69)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_wkwm4")
-animation = &"fuming"
+animation = &"unhappy"
 autoplay = "happy"
 
 [node name="AISpeechContainer" type="PanelContainer" parent="."]
@@ -149,8 +155,9 @@ theme_override_constants/margin_bottom = 35
 
 [node name="AISpeech" type="RichTextLabel" parent="AISpeechContainer/MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("7_jj418")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
@@ -293,6 +300,10 @@ theme = SubResource("Theme_1xvtl")
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_1tx5b")
+bus = &"BGM"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_kh56v")
 bus = &"BGM"
 

@@ -52,10 +52,10 @@ Name = "Aircon"
 Actions = Array[ExtResource("3_8fulj")]([SubResource("Resource_dny17")])
 
 [node name="FlowContainer" parent="." index="2"]
-offset_left = -1.07143
-offset_top = -33.1034
-offset_right = 75.9286
-offset_bottom = 6.89656
+offset_left = -20.3572
+offset_top = -28.9655
+offset_right = 56.6429
+offset_bottom = 11.0345
 
 [node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
 layout_mode = 2

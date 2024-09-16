@@ -58,10 +58,10 @@ offset_right = 45.8571
 offset_bottom = 52.0345
 
 [node name="FlowContainer" parent="." index="2"]
-offset_left = -52.5
-offset_top = -62.0689
-offset_right = 81.5
-offset_bottom = -4.06894
+offset_left = -47.1429
+offset_top = -45.5172
+offset_right = 86.8571
+offset_bottom = 12.4827
 vertical = true
 
 [node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
