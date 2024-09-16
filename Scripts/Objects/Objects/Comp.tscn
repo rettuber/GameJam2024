@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbwenqompumrr"]
+[gd_scene load_steps=10 format=3 uid="uid://dbwenqompumrr"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_qlc8f"]
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="2_f6s4b"]
 [ext_resource type="Texture2D" uid="uid://cvq0b6owt2avx" path="res://Assets/Objects/PC.png" id="2_qi6bs"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="2_x7u1d"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_ksh0v"]
 
 [sub_resource type="Resource" id="Resource_fphpw"]
 script = ExtResource("2_f6s4b")
 Name = "Стереть важные файлы"
 Description = "Прощай популярность, прощай гонорар"
-player_function_name = ""
-npc_function_name = ""
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b855g"]
 bg_color = Color(0.960784, 0.960784, 0.960784, 1)
@@ -46,6 +47,7 @@ texture_normal = ExtResource("2_qi6bs")
 texture_pressed = ExtResource("2_qi6bs")
 texture_hover = ExtResource("2_qi6bs")
 texture_disabled = ExtResource("2_qi6bs")
+script = ExtResource("3_ksh0v")
 Name = "Comp"
 Actions = Array[ExtResource("2_f6s4b")]([SubResource("Resource_fphpw")])
 
@@ -68,3 +70,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_b855g")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t7nn0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7sfc8")
 text = "Стереть важные файлы"
+
+[connection signal="pressed" from="FlowContainer/TurnOn" to="." method="Toggle" binds= [0]]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://crd5rdn2ffwr"]
+
+[ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="1_iffcl"]
+[ext_resource type="Texture2D" uid="uid://bu7fqvx83l7p" path="res://Assets/UI/win_screen.png" id="2_l6nox"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="3_0sjtw"]
+
+[sub_resource type="Theme" id="Theme_pderx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmjo7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv8tm"]
+bg_color = Color(0.313726, 0.380392, 0.776471, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eauue"]
+bg_color = Color(0.654902, 0.552941, 0.568627, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iffcl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1284.0
+offset_bottom = 722.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_l6nox")
+
+[node name="Exit" type="Button" parent="CanvasLayer"]
+offset_left = 457.0
+offset_top = 581.0
+offset_right = 828.0
+offset_bottom = 648.0
+theme = SubResource("Theme_pderx")
+theme_override_colors/font_hover_pressed_color = Color(0.168627, 0.156863, 0.254902, 1)
+theme_override_colors/font_hover_color = Color(0.168627, 0.156863, 0.254902, 1)
+theme_override_colors/font_pressed_color = Color(0.168627, 0.156863, 0.254902, 1)
+theme_override_colors/font_focus_color = Color(0.168627, 0.156863, 0.254902, 1)
+theme_override_colors/font_color = Color(0.168627, 0.156863, 0.254902, 1)
+theme_override_fonts/font = ExtResource("3_0sjtw")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmjo7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nv8tm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eauue")
+text = "To Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

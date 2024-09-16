@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var StressLevel: float = 0.0
-var movement_speed: float = 200.0
+var movement_speed: float = 100.0
 var current_target_position: Vector2 = Vector2(60.0,180.0)
 var current_target
 @export var Destinations: Array[InteractableObject] = []
@@ -83,7 +83,8 @@ func _continue_movement():
 	Interface.RandomAISPeech()
 	i += 1
 	if i >= Destinations.size():
-		i = 0
+		print("You lost!")
+		get_tree().change_scene_to_file("res://Scripts/UI/YouLost.tscn")
 	set_movement_target(Destinations[i])
 	movement_allowed = true
 

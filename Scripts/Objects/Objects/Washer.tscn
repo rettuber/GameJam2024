@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1ko8ix1xr7fp"]
+[gd_scene load_steps=10 format=3 uid="uid://c1ko8ix1xr7fp"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_48mid"]
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="2_8j34i"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="2_aiu75"]
 [ext_resource type="Texture2D" uid="uid://cl4lyo35xpk5e" path="res://Assets/Objects/Washer.png" id="2_tx7ts"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_u6lom"]
 
 [sub_resource type="Resource" id="Resource_b0n5n"]
 script = ExtResource("2_8j34i")
 Name = "Постирать до дыр"
 Description = "Ну хоть одна вещь здесь работает. В отличие от некоторых."
-player_function_name = ""
-npc_function_name = ""
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3beeo"]
 bg_color = Color(0.960784, 0.960784, 0.960784, 1)
@@ -46,6 +47,7 @@ texture_normal = ExtResource("2_tx7ts")
 texture_pressed = ExtResource("2_tx7ts")
 texture_hover = ExtResource("2_tx7ts")
 texture_disabled = ExtResource("2_tx7ts")
+script = ExtResource("3_u6lom")
 Name = "Washer"
 Actions = Array[ExtResource("2_8j34i")]([SubResource("Resource_b0n5n")])
 
@@ -68,3 +70,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3beeo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xc0v6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8omnc")
 text = "Постирать до дыр"
+
+[connection signal="pressed" from="FlowContainer/TurnOn" to="." method="Toggle" binds= [0]]

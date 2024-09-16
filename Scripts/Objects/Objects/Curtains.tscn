@@ -1,23 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctx50sdpwra27"]
+[gd_scene load_steps=11 format=3 uid="uid://ctx50sdpwra27"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_u2pkj"]
 [ext_resource type="Texture2D" uid="uid://cbt3xdf11yl5j" path="res://Assets/Objects/Curtains.png" id="2_p74kb"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/TV.gd" id="3_f175o"]
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_obf7j"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="4_0up53"]
 
-[sub_resource type="Resource" id="Resource_yy3lu"]
+[sub_resource type="Resource" id="Resource_61riy"]
 script = ExtResource("3_obf7j")
 Name = "Впустить свет"
 Description = "Светло? Не бойся, ты же не вампир... наверное."
-player_function_name = ""
-npc_function_name = ""
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
 
-[sub_resource type="Resource" id="Resource_bft04"]
+[sub_resource type="Resource" id="Resource_k78do"]
 script = ExtResource("3_obf7j")
 Name = "Устроить ночь"
 Description = "Темнота – лучший друг, правда? Как и твои перспективы."
-player_function_name = ""
-npc_function_name = ""
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wokwr"]
 bg_color = Color(0.960784, 0.960784, 0.960784, 1)
@@ -53,8 +54,12 @@ texture_normal = ExtResource("2_p74kb")
 texture_pressed = ExtResource("2_p74kb")
 texture_hover = ExtResource("2_p74kb")
 texture_disabled = ExtResource("2_p74kb")
-Name = "Curtains"
-Actions = Array[ExtResource("3_obf7j")]([SubResource("Resource_yy3lu"), SubResource("Resource_bft04")])
+script = ExtResource("3_f175o")
+texture_on = ExtResource("2_p74kb")
+texture_off = ExtResource("2_p74kb")
+ColorBugged = Color(0.878431, 0.658824, 0.678431, 1)
+ColorUnusable = Color(0.627451, 0.627451, 0.627451, 1)
+Actions = Array[ExtResource("3_obf7j")]([SubResource("Resource_61riy"), SubResource("Resource_k78do")])
 
 [node name="FlowContainer" parent="." index="2"]
 offset_left = 60.0
@@ -89,3 +94,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wokwr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wg4ln")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6pngj")
 text = "Устроить ночь"
+
+[connection signal="pressed" from="FlowContainer/TurnOn" to="." method="Toggle" binds= [0]]
+[connection signal="pressed" from="FlowContainer/TurnOff" to="." method="Toggle" binds= [1]]

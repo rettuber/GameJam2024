@@ -1,6 +1,8 @@
 extends InteractableObject
 
 var turned_on = false
+@export var texture_on : Texture2D
+@export var texture_off : Texture2D
 
 func generate_buttons():
 	$FlowContainer/TurnOff.disabled = true
@@ -17,18 +19,18 @@ func switcheroo():
 		$FlowContainer/TurnOn.disabled = false
 		$FlowContainer/TurnOff.disabled = true
 		turned_on = false
-		texture_normal = load("res://Assets/Objects/TV.png")
-		texture_pressed = load("res://Assets/Objects/TV.png")
-		texture_hover = load("res://Assets/Objects/TV.png")
-		texture_disabled = load("res://Assets/Objects/TV.png")
+		texture_normal = texture_off
+		texture_pressed = texture_off
+		texture_hover = texture_off
+		texture_disabled = texture_off
 	if not turned_on:
 		$FlowContainer/TurnOn.disabled = true
 		$FlowContainer/TurnOff.disabled = false
 		turned_on = true
-		texture_normal = load("res://Assets/Objects/TV_On.png")
-		texture_pressed = load("res://Assets/Objects/TV_On.png")
-		texture_hover = load("res://Assets/Objects/TV_On.png")
-		texture_disabled = load("res://Assets/Objects/TV_On.png")
+		texture_normal = texture_on
+		texture_pressed = texture_on
+		texture_hover = texture_on
+		texture_disabled = texture_on
 
 func check_for_npc(i):
 	if i >= 0: # PLAYER DID IT

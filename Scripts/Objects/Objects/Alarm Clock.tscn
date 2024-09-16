@@ -50,7 +50,6 @@ texture_disabled = ExtResource("2_em3ay")
 script = ExtResource("3_kml3i")
 Name = "Будильник"
 Actions = Array[ExtResource("3_hfl4y")]([SubResource("Resource_45r7t")])
-InteractionTime = 1.0
 
 [node name="CloudImage" parent="CloudPopUp" index="0"]
 offset_left = -2.14287

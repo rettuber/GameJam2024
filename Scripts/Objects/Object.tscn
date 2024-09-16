@@ -103,6 +103,7 @@ libraries = {
 }
 
 [node name="FlowContainer" type="FlowContainer" parent="."]
+z_index = 50
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
