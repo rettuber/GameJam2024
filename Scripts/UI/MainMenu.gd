@@ -2,6 +2,7 @@ extends Control
 
 
 func _on_StartGame_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Apartment.tscn")
 
 func _on_Options_pressed() -> void:

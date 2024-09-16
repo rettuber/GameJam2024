@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4cq5cpmxbkwg"]
+[gd_scene load_steps=12 format=3 uid="uid://d4cq5cpmxbkwg"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_p2uwx"]
 [ext_resource type="Texture2D" uid="uid://3dhu03ylfqyp" path="res://Assets/Objects/TV.png" id="2_guedt"]
 [ext_resource type="Script" path="res://Scripts/Objects/Objects/TV.gd" id="3_5nc0f"]
 [ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_hnwso"]
+[ext_resource type="Texture2D" uid="uid://dtmnyt63dc8rs" path="res://Assets/Objects/TV_On.png" id="4_3objg"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="5_wnbmk"]
 
 [sub_resource type="Resource" id="Resource_o48yi"]
@@ -55,6 +56,8 @@ texture_pressed = ExtResource("2_guedt")
 texture_hover = ExtResource("2_guedt")
 texture_disabled = ExtResource("2_guedt")
 script = ExtResource("3_5nc0f")
+texture_on = ExtResource("4_3objg")
+texture_off = ExtResource("2_guedt")
 Name = "Телевизор"
 Actions = Array[ExtResource("3_hnwso")]([SubResource("Resource_o48yi"), SubResource("Resource_ugeta")])
 

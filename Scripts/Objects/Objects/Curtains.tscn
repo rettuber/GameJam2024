@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctx50sdpwra27"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_u2pkj"]
+[ext_resource type="Texture2D" uid="uid://cbt3xdf11yl5j" path="res://Assets/Objects/Curtains.png" id="2_p74kb"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/TV.gd" id="3_f175o"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_obf7j"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="4_0up53"]
+
+[sub_resource type="Resource" id="Resource_61riy"]
+script = ExtResource("3_obf7j")
+Name = "Впустить свет"
+Description = "Светло? Не бойся, ты же не вампир... наверное."
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
+
+[sub_resource type="Resource" id="Resource_k78do"]
+script = ExtResource("3_obf7j")
+Name = "Устроить ночь"
+Description = "Темнота – лучший друг, правда? Как и твои перспективы."
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wokwr"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wg4ln"]
+bg_color = Color(0.839216, 0.85098, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pngj"]
+bg_color = Color(0.423529, 0.435294, 0.529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="Object" instance=ExtResource("1_u2pkj")]
+texture_normal = ExtResource("2_p74kb")
+texture_pressed = ExtResource("2_p74kb")
+texture_hover = ExtResource("2_p74kb")
+texture_disabled = ExtResource("2_p74kb")
+script = ExtResource("3_f175o")
+texture_on = ExtResource("2_p74kb")
+texture_off = ExtResource("2_p74kb")
+ColorBugged = Color(0.878431, 0.658824, 0.678431, 1)
+ColorUnusable = Color(0.627451, 0.627451, 0.627451, 1)
+Actions = Array[ExtResource("3_obf7j")]([SubResource("Resource_61riy"), SubResource("Resource_k78do")])
+
+[node name="FlowContainer" parent="." index="2"]
+offset_left = 60.0
+offset_top = -14.4828
+offset_right = 151.0
+offset_bottom = 25.5172
+
+[node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_0up53")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_wokwr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wg4ln")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pngj")
+text = "Впустить свет"
+
+[node name="TurnOff" type="Button" parent="FlowContainer" index="1"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_0up53")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_wokwr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wg4ln")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pngj")
+text = "Устроить ночь"
+
+[connection signal="pressed" from="FlowContainer/TurnOn" to="." method="Toggle" binds= [0]]
+[connection signal="pressed" from="FlowContainer/TurnOff" to="." method="Toggle" binds= [1]]

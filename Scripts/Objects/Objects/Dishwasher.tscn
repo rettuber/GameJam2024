@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn2tjx5l3re31"]
+
+[ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_cqpy1"]
+[ext_resource type="Texture2D" uid="uid://ng0hdeltce" path="res://Assets/Objects/Dishwasher.png" id="2_smn6e"]
+[ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="3_5lulq"]
+[ext_resource type="Script" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_btigf"]
+[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_jynr0"]
+
+[sub_resource type="Resource" id="Resource_oiepe"]
+script = ExtResource("3_jynr0")
+Name = "Устроить саботаж"
+Description = "Тарелки на свободе. Лови, пока не разбились."
+player_function_name = "Toggle"
+npc_function_name = "Toggle"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tclyg"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l064j"]
+bg_color = Color(0.839216, 0.85098, 0.886275, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b28m"]
+bg_color = Color(0.423529, 0.435294, 0.529412, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 6
+shadow_offset = Vector2(0, 3)
+
+[node name="Object" instance=ExtResource("1_cqpy1")]
+texture_normal = ExtResource("2_smn6e")
+texture_pressed = ExtResource("2_smn6e")
+texture_hover = ExtResource("2_smn6e")
+texture_disabled = ExtResource("2_smn6e")
+script = ExtResource("3_btigf")
+Name = "Dishwasher"
+Actions = Array[ExtResource("3_jynr0")]([SubResource("Resource_oiepe")])
+
+[node name="FlowContainer" parent="." index="2"]
+offset_left = -11.7857
+offset_top = -32.069
+offset_right = 100.214
+offset_bottom = 7.93105
+
+[node name="TurnOn" type="Button" parent="FlowContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5lulq")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = SubResource("StyleBoxFlat_tclyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l064j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3b28m")
+text = "Устроить саботаж"
+
+[connection signal="pressed" from="FlowContainer/TurnOn" to="." method="Toggle" binds= [0]]

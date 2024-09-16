@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WomanJam2024"
-run/main_scene="res://Apartment.tscn"
+run/main_scene="res://Scripts/UI/Main Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

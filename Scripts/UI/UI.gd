@@ -10,6 +10,9 @@ var stress_bar
 var hours_text
 var minutes_text
 var ai_speech
+var audio
+
+signal max_stress_reached
 
 var AISpeechArray : Array[String] = [
 	"Так что, готов к тому, что этот дом скоро станет только моим?",
@@ -21,7 +24,7 @@ var AISpeechArray : Array[String] = [
 ]
 
 func _ready() -> void:
-	call_deferred("_ui_setup")
+	pass
 
 func _ui_setup():
 	await get_tree().physics_frame
@@ -29,7 +32,10 @@ func _ui_setup():
 	minutes_text = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/ClockContainer/MarginContainer/HBoxContainer/ClockMinutes")
 	ai_speech = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/AISpeechContainer/MarginContainer/AISpeech")
 	stress_bar = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/StressBar")
-	_update_clock()
+	audio = get_node("/root/Node2D/Camera2D/CanvasLayer/Interface/AudioStreamPlayer")
+
+func play_music():
+	audio.play()
 
 func _update_clock():
 	if not stop_clock:
@@ -48,21 +54,23 @@ func _update_clock():
 				minutes_text.text = "0"
 			minutes_text.append_text(str(minutes))
 		if hours >= 22:
-			return # LOSE CONDITION
-		await get_tree().create_timer(0.1).timeout
+			print("You lost!")
+			stop_clock = true
+			get_tree().change_scene_to_file("res://Scripts/UI/YouLost.tscn")
+		await get_tree().create_timer(0.3).timeout
 		_update_clock()
 
 func IncreaseStress() :
 	stress += 1
 	match stress:
 		4:
-			AttemptSetStressBar()
+			audio.stream = load("res://Assets/music_2.wav")
 		7: 
-			AttemptSetStressBar()
-		10:
-			pass
-		_:
-			AttemptSetStressBar()
+			audio.stream = load("res://Assets/music_3.wav")
+		9:
+			audio.stop()
+			max_stress_reached.emit()
+	AttemptSetStressBar()
 
 func DecreaseStress() :
 	if stress > 0: stress -= 1
