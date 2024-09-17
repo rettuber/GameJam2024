@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://crd5rdn2ffwr"]
+[gd_scene load_steps=9 format=3 uid="uid://crd5rdn2ffwr"]
 
 [ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="1_iffcl"]
 [ext_resource type="Texture2D" uid="uid://bu7fqvx83l7p" path="res://Assets/UI/win_screen.png" id="2_l6nox"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="3_0sjtw"]
+[ext_resource type="AudioStream" uid="uid://qq2b2sjil5nb" path="res://Assets/music_3.wav" id="4_qa5hc"]
 
 [sub_resource type="Theme" id="Theme_pderx"]
 
@@ -76,6 +77,11 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmjo7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nv8tm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eauue")
-text = "To Main Menu"
+text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qa5hc")
+autoplay = true
+bus = &"BGM"
 
 [connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]
