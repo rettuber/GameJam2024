@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://oo8pp1huxkwe"]
 
-[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
+[ext_resource type="Script" uid="uid://nkyau8ci1y28" path="res://Scripts/UI/UI.gd" id="1_gp83y"]
 [ext_resource type="Texture2D" uid="uid://71xw8hjuxllo" path="res://Assets/UI/BG.png" id="2_sg202"]
 [ext_resource type="Texture2D" uid="uid://bgwwa0y3rm55m" path="res://Assets/UI/HUD/AngerScale.png" id="3_kbp4m"]
 [ext_resource type="Texture2D" uid="uid://chm2b6s8iw0kx" path="res://Assets/UI/HUD/Scale.png" id="3_q21gd"]

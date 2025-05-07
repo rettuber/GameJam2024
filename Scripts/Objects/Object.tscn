@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://btjcktrnlkns5"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectScript.gd" id="1_7u4ih"]
+[ext_resource type="Script" uid="uid://bpvg44g1tfkur" path="res://Scripts/Objects/ObjectScript.gd" id="1_7u4ih"]
 [ext_resource type="Texture2D" uid="uid://govrqiogvruk" path="res://Assets/Objects/Object-sample.png" id="1_kcwus"]
 [ext_resource type="Texture2D" uid="uid://bxtnw2yg8kufj" path="res://Assets/UI/Cloud-sample.png" id="5_j8t0w"]
 [ext_resource type="Texture2D" uid="uid://b688x37b6ymjw" path="res://Assets/UI/HUD/ScrewIcon.png" id="6_kl0dh"]
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xlges"]
 _data = {
-"RESET": SubResource("Animation_b2x3e"),
-"Sparks": SubResource("Animation_bjyfc")
+&"RESET": SubResource("Animation_b2x3e"),
+&"Sparks": SubResource("Animation_bjyfc")
 }
 
 [node name="Object" type="TextureButton"]

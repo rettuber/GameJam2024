@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbwenqompumrr"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_qlc8f"]
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="2_f6s4b"]
+[ext_resource type="Script" uid="uid://diox8oyhst3e8" path="res://Scripts/Objects/ObjectAction.gd" id="2_f6s4b"]
 [ext_resource type="Texture2D" uid="uid://cvq0b6owt2avx" path="res://Assets/Objects/PC.png" id="2_qi6bs"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="2_x7u1d"]
-[ext_resource type="Script" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_ksh0v"]
+[ext_resource type="Script" uid="uid://cmklju1612coa" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_ksh0v"]
 
 [sub_resource type="Resource" id="Resource_fphpw"]
 script = ExtResource("2_f6s4b")

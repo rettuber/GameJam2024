@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsn2wfatlwyv0"]
 
-[ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="1_18r2o"]
+[ext_resource type="Script" uid="uid://cltpn1bsui48a" path="res://Scripts/UI/GameOver.gd" id="1_18r2o"]
 [ext_resource type="Texture2D" uid="uid://cjdh1xeuveaxb" path="res://Assets/UI/lose_screen.png" id="2_sg5bp"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="3_34ppc"]
 [ext_resource type="AudioStream" uid="uid://qq2b2sjil5nb" path="res://Assets/music_3.wav" id="4_bejcv"]

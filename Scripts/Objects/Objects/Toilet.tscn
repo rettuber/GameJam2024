@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://csmcth0vk1bea"]
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_4rfu4"]
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="2_4w8ep"]
+[ext_resource type="Script" uid="uid://diox8oyhst3e8" path="res://Scripts/Objects/ObjectAction.gd" id="2_4w8ep"]
 [ext_resource type="Texture2D" uid="uid://bdc156uq24hpf" path="res://Assets/Objects/Toilet.png" id="2_fnoti"]
-[ext_resource type="Script" path="res://Scripts/Objects/Objects/Toilet.gd" id="3_vwo5y"]
+[ext_resource type="Script" uid="uid://bg32ejgmt347f" path="res://Scripts/Objects/Objects/Toilet.gd" id="3_vwo5y"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="3_y6tdo"]
 
 [sub_resource type="Resource" id="Resource_jvhgg"]

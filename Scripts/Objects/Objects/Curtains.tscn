@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_u2pkj"]
 [ext_resource type="Texture2D" uid="uid://cbt3xdf11yl5j" path="res://Assets/Objects/Curtains.png" id="2_p74kb"]
-[ext_resource type="Script" path="res://Scripts/Objects/Objects/TV.gd" id="3_f175o"]
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_obf7j"]
+[ext_resource type="Script" uid="uid://dasewkxndrwrv" path="res://Scripts/Objects/Objects/TV.gd" id="3_f175o"]
+[ext_resource type="Script" uid="uid://diox8oyhst3e8" path="res://Scripts/Objects/ObjectAction.gd" id="3_obf7j"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="4_0up53"]
 
 [sub_resource type="Resource" id="Resource_61riy"]

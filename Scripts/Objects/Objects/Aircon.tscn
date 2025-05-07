@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_skmtt"]
 [ext_resource type="Texture2D" uid="uid://ds60d2gekbm3i" path="res://Assets/Objects/Aircon.png" id="2_3fwvx"]
-[ext_resource type="Script" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_6hmr7"]
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="3_8fulj"]
+[ext_resource type="Script" uid="uid://cmklju1612coa" path="res://Scripts/Objects/Objects/CoffeeMaker.gd" id="3_6hmr7"]
+[ext_resource type="Script" uid="uid://diox8oyhst3e8" path="res://Scripts/Objects/ObjectAction.gd" id="3_8fulj"]
 [ext_resource type="FontFile" uid="uid://bp625sncpuuld" path="res://Assets/UI/CustomFontTtf16H30ForPaint.ttf" id="4_hn1by"]
 
 [sub_resource type="Resource" id="Resource_dny17"]

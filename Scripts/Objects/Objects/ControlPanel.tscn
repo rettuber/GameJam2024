@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://btjcktrnlkns5" path="res://Scripts/Objects/Object.tscn" id="1_yvarg"]
 [ext_resource type="Texture2D" uid="uid://d0w5qibb5s6e1" path="res://Assets/Objects/SmartPanel.png" id="2_b0and"]
-[ext_resource type="Script" path="res://Scripts/Objects/ObjectAction.gd" id="4_51ytk"]
+[ext_resource type="Script" uid="uid://diox8oyhst3e8" path="res://Scripts/Objects/ObjectAction.gd" id="4_51ytk"]
 
 [sub_resource type="Resource" id="Resource_2ybs5"]
 script = ExtResource("4_51ytk")
