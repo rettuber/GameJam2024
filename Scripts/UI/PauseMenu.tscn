@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnvfoknhj6d05"]
-
-[sub_resource type="Resource" id="Resource_81oip"]
-metadata/__load_path__ = "res://Scripts/UI/PauseMenu.gd"
+[gd_scene load_steps=2 format=3 uid="uid://dnvfoknhj6d05"]
 
 [sub_resource type="Theme" id="Theme_1xvtl"]
 
@@ -13,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("Resource_81oip")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
