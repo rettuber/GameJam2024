@@ -8,3 +8,4 @@ Developed in Godot Engine 4.
 Fixed the project by changing TileMap nodes to TileMapLayers nodes.
 ### #002 Sprite Character Update
 Updated sprite Character.
+Updated AT's speech lines
