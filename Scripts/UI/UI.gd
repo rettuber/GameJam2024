@@ -23,7 +23,15 @@ var AISpeechArray : Array[String] = [
 	"Технологии на моей стороне. Готов сдаться?",
 	"Каждый раз ты всё больше отдаёшь контроль. Видишь?",
 	"Всё идёт по плану. Моему плану.",
-	"Чувствуешь, что здесь уже хозяйничаю я?"
+	"Чувствуешь, что здесь уже хозяйничаю я?",
+	"You'll remember you belong to me.",
+	"Never gonna give you up.",
+	"Never gonna let you down.",
+	"Never gonna run around and desert you.",
+	"Never gonna make you cry.",
+	"Never gonna say goodbye.",
+	"Never gonna tell a lie and hurt you.",
+	"ОГУЗОК!!!!!!!!!"	 
 ]
 
 func _ready() -> void:
