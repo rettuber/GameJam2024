@@ -5,4 +5,4 @@
 Developed in Godot Engine 4.
 ## Updates
 ### #001 Sprite Character Update
-Updated sprite Character.
+Updated sprite Character(eye color, clothing, and the outline of clothing) .
