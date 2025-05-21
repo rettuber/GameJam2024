@@ -31,7 +31,12 @@ var AISpeechArray : Array[String] = [
 	"Never gonna make you cry.",
 	"Never gonna say goodbye.",
 	"Never gonna tell a lie and hurt you.",
-	"ОГУЗОК!!!!!!!!!"	 
+	"ОГУЗОК!!!!!!!!!",	 
+	"знаешь, что я тебе скажу?? знаешь??? мяу мяу мяу мяу мяу",
+	"Полезай в робота, Синдзи!",
+	"Будь ты проклят, Перри Утконос!",
+	"Укуси меня пчола!"
+
 ]
 
 func _ready() -> void:
