@@ -6,16 +6,19 @@
 Developed in Godot Engine 4.
 ## Updates
 ### #001 Tilemap update
+Smolin Mikhail (1.4), Isayev Dmitri (1.4)
 Fixed the project by changing TileMap nodes to TileMapLayers nodes.
 ### #002 Sprite Character Update
-Updated sprite Character.
+Didenko Daria (1.4), Belykh Matvei (1.4)
+Updated sprite Character. (to purple)
 ### #003
-...
-### #004
-The following people worked on this repository: Ekaterina Rebrova, Alan Madreimov
+Somkin Fyodor (1.2), Lazarev Stepan (1.2)
 Добавили реплики главному "роботу" 
 1) Заменили вступительную реплику "Робота".
 2) Заменили фразы после пакастей. 
+### #004
+The following people worked on this repository: Ekaterina Rebrova, Alan Madreimov
+Changed character sprite to minions.
 ### #005
 Mikhailova Anastasia (1.4), Samsonova Taisia (1.2)
 Updated AI's speech lines
