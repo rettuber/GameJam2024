@@ -34,3 +34,13 @@ Updated AI's speech lines
 Evdokimova Anna (1.4), Biktagirova Diana (1.4)
 
 Updated sprite Character(eye color, clothing, and the outline of clothing) .
+
+### #007 
+Buchelnikov Egor (1.4), ???
+
+Updated Character sprite + faces sprite (changed to anime girl)
+
+### #008
+Bashkov Ivan (1.2), Petko Egor (1.2)
+
+Added main character speech lines.
